@@ -127,7 +127,7 @@ class Date
 
     public static function formatGoogle($date)
     {
-        $d = new DateTime($date, new DateTimeZone('Europe/Kiev'));
+        $d = new DateTime($date, new DateTimeZone('Europe/Kyiv'));
         return $d->format('Y-m-d\TH:i:s');
 //        return $d->format('Y-m-d\TH:i:sP');
     }
@@ -161,25 +161,25 @@ class Date
 
     public static function date_now()
     {
-        $d = new DateTime('now', new DateTimeZone('Europe/Kiev'));
+        $d = new DateTime('now', new DateTimeZone('Europe/Kyiv'));
         return $d->format('Y-m-d');
     }
 
     public static function datetime_now()
     {
-        $d = new DateTime('now', new DateTimeZone('Europe/Kiev'));
+        $d = new DateTime('now', new DateTimeZone('Europe/Kyiv'));
         return $d->format('Y-m-d H:i:s');
     }
 
     public static function day_now_week()
     {
-        $d = new DateTime('now', new DateTimeZone('Europe/Kiev'));
+        $d = new DateTime('now', new DateTimeZone('Europe/Kyiv'));
         return $d->format('l');
     }
 
     public static function time_now()
     {
-        $d = new DateTime('now', new DateTimeZone('Europe/Kiev'));
+        $d = new DateTime('now', new DateTimeZone('Europe/Kyiv'));
         return $d->format('H:i:s');
     }
 

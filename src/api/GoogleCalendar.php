@@ -54,11 +54,11 @@ class GoogleCalendar
             'description' => Yii::$app->urlManager->createAbsoluteUrl(['/rent/move/update', 'id' => $this->order->id]) . PHP_EOL . Yii::$app->urlManager->createAbsoluteUrl(['/rent/move/pdf', 'id' => $this->order->id]),
             'start' => array(
                 'dateTime' => Date::formatGoogle($this->order->start_at),
-                'timeZone' => 'Europe/Kiev',
+                'timeZone' => 'Europe/Kyiv',
             ),
             'end' => array(
                 'dateTime' => Date::formatGoogle($this->order->end_at),
-                'timeZone' => 'Europe/Kiev',
+                'timeZone' => 'Europe/Kyiv',
             ),
             'recurrence' => array(
                 'RRULE:FREQ=DAILY;COUNT=1'
@@ -77,11 +77,11 @@ class GoogleCalendar
             'id' => $this->order->calendarEventId,
             'start' => array(
                 'dateTime' => Date::formatGoogle($this->order->start_at),
-                'timeZone' => 'Europe/Kiev',
+                'timeZone' => 'Europe/Kyiv',
             ),
             'end' => array(
                 'dateTime' => Date::formatGoogle($this->order->end_at),
-                'timeZone' => 'Europe/Kiev',
+                'timeZone' => 'Europe/Kyiv',
             ),
             'recurrence' => array(
                 'RRULE:FREQ=DAILY;COUNT=1'

@@ -8,7 +8,7 @@ $params = array_merge(
 return [
     'id' => 'bot',
     'basePath' => dirname(__DIR__),
-    'timeZone' => 'Europe/Kiev',
+    'timeZone' => 'Europe/Kyiv',
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'customer/statistic/index',
     'bootstrap' => ['log'],
