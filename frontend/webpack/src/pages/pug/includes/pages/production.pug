@@ -1,0 +1,51 @@
+extends ../layout/base
+include ../templates/item
+block variables
+
+  -
+    let productsData2 = [
+      {
+        img: basePath+ 'product/im1.png',
+        bg: basePath + 'product/bg1.png',
+        title: `почему именно vaporlax`,
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      },
+      {
+        img: basePath + 'product/im1.png',
+        bg: basePath + 'product/bg2.png',
+        title: `преймущества vaporlax `,
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      },
+      {
+        img: basePath + 'product/im1.png',
+        bg: basePath + 'product/bg3.png',
+        title: `почему это удобно?`,
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      },
+
+    ]
+block main
+  main.main.products
+    include ../layout/header
+    .container
+      .main__wrap
+        h1.main__title
+          +Img('icons/vaporlaxlogo.png')
+          span 600
+          | затяжек прямо у тебя в кармане
+          p Просто взял и наслаждаешься простотой и удобством использования
+        +ButtonLink('catalog','перейти в каталог','btn--light main__button')
+
+
+  section.products__wrap
+    each product,index in productsData2
+      .products__item
+        .container
+          .products__content(class=`product-` + (index + 1))
+            .products__img
+              +Img(product.img)
+            .products__description
+              h2=product.title
+              p=product.description
+
+    +ButtonLink('catalog','детальнее','btn--light product__button')

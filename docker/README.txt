@@ -1,0 +1,1 @@
+php yii migrate/create alter_table_newsletter_config_add_column_web_tracking_link

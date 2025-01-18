@@ -1,0 +1,9 @@
+include ../../../utils/mixins
+
+mixin iphoneX(content)
+  - let blocks = ['stripe','header','sensors','btns','power',]
+  .device.device-iphone-x
+    .device-frame
+      img.device-content(src=imgPath+content)
+      each block in blocks
+        div(class=`device-${block}`)

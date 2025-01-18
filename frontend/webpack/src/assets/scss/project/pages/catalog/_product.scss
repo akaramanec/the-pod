@@ -1,0 +1,194 @@
+.product {
+  background: $color__light;
+
+  &__main {
+
+  }
+
+  &__content {
+    display: grid;
+
+    grid: {
+      template: {
+        rows: auto auto;
+        columns: 1fr 1fr;
+        areas: 'image main' 'image second';
+      }
+    }
+    @include breakpoint($phone__all) {
+      display: flex;
+      flex-direction: column;
+    }
+    @include breakpoint($mobile__all) {
+      padding-top: 0 !important;
+    }
+  }
+
+  &__img {
+    grid-area: image;
+
+    &-main {
+      max-height: 700px;
+      @include breakpoint($mobile__all) {
+        max-height: 330px;
+      }
+      @include breakpoint($phone__all) {
+        max-height: unset;
+      }
+    }
+
+    &-wrap {
+      display: flex;
+
+      .img-wrap {
+        cursor: pointer;
+        position: relative;
+        z-index: z(content);
+      }
+
+      img {
+        @include size(200px);
+        @include breakpoint($mobile__all) {
+          @include size(100px)
+        }
+      }
+    }
+
+    @include breakpoint($phone__all) {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__description {
+    &-main {
+      text-align: left;
+
+      color: $color__dark;
+
+      grid-area: main;
+
+      h1 {
+        margin-bottom: 30px;
+
+        text-align: inherit;
+
+        color: inherit;
+      }
+
+      .base-button.item-card__btn {
+        margin-left: 0 !important;
+         @include breakpoint ($phone__all) {
+           width: 100%;
+          }
+      }
+
+    }
+
+    &-second {
+      color: $color__dark;
+      grid-area: second;
+    }
+  }
+
+  &__stats {
+    li {
+      font-size: 20px;
+      line-height: 27px;
+
+      margin-bottom: 30px;
+
+      text-transform: lowercase;
+
+      span {
+        font-size: 25px;
+        line-height: 33px;
+
+        text-transform: uppercase;
+      }
+
+      @include breakpoint($mobile__all) {
+        margin-bottom: 17px;
+        font-size: 16px;
+        line-height: 21px;
+        span {
+          font-size: 20px;
+          line-height: 27px;
+        }
+      }
+    }
+  }
+
+  &__price {
+    margin-bottom: 30px;
+
+    p span {
+      font-size: 25px;
+      line-height: 33px;
+    }
+  }
+
+  .info-wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+
+    span {
+      text-transform: lowercase;
+      font-size: 20px;
+      line-height: 27px;
+      margin-right: 1rem;
+      @include breakpoint($mobile__all) {
+        font-size: 16px;
+        line-height: 21px;
+      }
+    }
+
+    @include breakpoint($phone__all) {
+      margin-bottom: 1rem;
+      width: 100%;
+      .btn-toolbar {
+        width: inherit;
+
+        .btn-group {
+          width: inherit;
+          margin-right: 0 !important;
+        }
+      }
+      span {
+        display: none;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+
+    button:first-child {
+      margin-right: 2rem;
+
+    }
+
+
+    @include breakpoint($mobile__all) {
+      margin-bottom: 1rem;
+      flex-direction: column;
+      a, button {
+        margin-right: 0;
+        margin-left: 0;
+      }
+
+    }
+    @include breakpoint($phone__all) {
+      a, button {
+        width: 100%;
+        margin: 0 auto 1rem;
+      }
+    }
+
+  }
+
+
+}
+

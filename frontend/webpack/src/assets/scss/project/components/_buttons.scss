@@ -1,0 +1,48 @@
+@mixin buttonColors($color-base,$color-hover) {
+  color: $color-base;
+  border-color: $color-base;
+  background-color: transparent;
+  @include breakpoint($desktop__all) {
+    &:hover {
+      border-radius: 40px;
+      border-color: $color-hover;
+      background-color: $color-hover;
+      color: $color__light;
+    }
+  }
+}
+
+.base-button {
+  text-transform: uppercase;
+  font-weight: bold;
+  min-width: 250px;
+  min-height: 40px;
+  padding: 15px 25px;
+  letter-spacing: 2.4px;
+  transition: all $animation-fast;
+  @extend %flex-center;
+  background-color: transparent;
+  border: {
+    width: 1px;
+
+    color: $color__border--primary;
+
+    radius: 40px;
+    style: solid;
+  };
+  background: {
+    color: transparent;
+  };
+
+
+  &.btn {
+    &--light {
+      @include buttonColors($color__light, $color__success)
+    }
+
+    &--dark {
+      @include buttonColors($color__dark, $color__success)
+    }
+  }
+}
+

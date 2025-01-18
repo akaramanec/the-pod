@@ -1,0 +1,79 @@
+
+.filter {
+  border: 1px solid lightgray;
+  flex-basis: 200px;
+  padding: 10px 15px;
+  margin-right: 10px;
+
+  #button_search {
+    width: 100%;
+    padding: 0;
+    min-width: unset;
+  }
+
+  &__header {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__items {
+    @include breakpoint($phone__all) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  form {
+    width: 200px;
+  }
+
+  .slider_price-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #price_from, #price_to {
+    flex-basis: 49%;
+
+    input {
+
+      border-color: $color__dark;
+      color: $color__dark;
+      margin-bottom: 1rem;
+      margin-left: 3px;
+      margin-right: 3px;
+    }
+  }
+
+  .custom-control {
+    margin-bottom: 10px;
+
+    &-wrap {
+      width: 200px;
+
+      & > p {
+        font-weight: bold;
+
+        &:first-letter {
+          text-transform: uppercase;
+        }
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      .custom-control.custom-checkbox {
+        padding-left: 0;
+        @import "../../../components/checkbox";
+
+      }
+    }
+  }
+}
+
+
+
+

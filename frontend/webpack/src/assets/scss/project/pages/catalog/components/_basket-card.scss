@@ -1,0 +1,54 @@
+.cart__basket {
+  position: relative;
+  height: 180px;
+  width: 100%;
+  display: grid;
+  grid-template: 'img content' 180px / 125px auto;
+  @include breakpoint($phone__all) {
+    grid-template: 'img content' 220px / 80px auto;
+  }
+
+  &-imgwrap {
+    grid-area: img;
+  }
+
+
+  &-content {
+    grid-area: content;
+  }
+  &-name a {
+    display: block;
+    color: $color__dark;
+    max-width: 250px;
+    font-size: 20px;
+    @include breakpoint($phone__all) {
+      font-size: 15px;
+      max-width: 200px;
+    }
+  }
+
+
+  .cabinet-body__favorite {
+    &-text {
+      display: none;
+    }
+
+    &-cross {
+      z-index: z(content);
+      @include cross(20px, 15px, 1px, $color__dark);
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .price-wrap {
+    .card-prise.price {
+      display: none;
+    }
+
+    font-size: 20px;
+    margin-top: 1rem;
+  }
+}
+
+

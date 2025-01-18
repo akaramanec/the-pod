@@ -1,0 +1,21 @@
+.products {
+  background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)),
+  url('#{$imgPath}/bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+ @include breakpoint ($mobile__all) {
+   background-position: 65% 50%;
+  }
+
+  &__item {
+    margin-bottom: 5rem;
+
+    &:nth-of-type(even) {
+      .products__content {
+         @include breakpoint ($desktop__all) {
+           flex-direction: row-reverse;
+          }
+      }
+    }
+  }
+}

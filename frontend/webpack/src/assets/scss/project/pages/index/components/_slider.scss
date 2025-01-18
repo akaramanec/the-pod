@@ -1,0 +1,68 @@
+$color__reviews: #242424;
+.reviews {
+
+  &__item {
+    color: $color__light;
+    text-align: center;
+    background-color: $color__reviews;
+    width: 100%;
+    border-radius: 20px;
+    @extend %flex-column-center;
+    // padding: 30px 40px;
+    position: relative;
+    overflow: hidden;
+    padding: 100% 50%;
+    @include breakpoint($tablet__all) {
+    }
+
+  }
+
+  &__img{
+    position: absolute;
+    top: 0px;
+    left: 0;
+
+  }
+
+
+  &__text {
+    width: 100%;
+  }
+}
+
+.owl {
+  &-stage {
+    display: flex;
+
+  }
+
+  &-item {
+    width: 450px;
+    @include breakpoint($tablet__all) {
+      width: 330px ;
+    }
+    @include breakpoint($phone__all) {
+      width: 240px;
+    }
+  }
+
+  &-nav {
+    display: none;
+  }
+
+  &-dots {
+    margin-top: 2rem !important;
+  }
+
+  &-dot {
+    span {
+      background-color: $color__reviews !important;
+    }
+
+    &.active span {
+      background-color: $color__light !important;
+    }
+  }
+}
+
+

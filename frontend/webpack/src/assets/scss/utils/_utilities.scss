@@ -1,0 +1,20 @@
+.show {
+  &-flex {
+    display: flex !important;
+  }
+  &-block {
+    display: block !important;
+  }
+  &-opacity {
+    opacity: 1 !important;
+  }
+}
+.hide {
+  &-display {
+    display: none !important;
+  }
+  &-opacity {
+    opacity: 0 !important;
+  }
+}
+

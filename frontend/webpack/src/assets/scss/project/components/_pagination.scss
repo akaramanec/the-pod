@@ -1,0 +1,57 @@
+.pagination {
+  justify-content: center;
+
+  @include breakpoint($phone__all) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .page-item {
+    margin: 20px;
+
+    @include size(50px);
+    @include breakpoint($phone__all) {
+      @include size(40px);
+    }
+    @include breakpoint($phone__all) {
+      margin: 10px;
+    }
+
+    &.active {
+      a {
+        color: $color__light;
+        border-color: $color__dark;
+        background-color: $color__dark;
+      }
+    }
+
+    a {
+      font-size: 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 100%;
+      padding: 0;
+
+      color: $color__dark;
+      border-color: $color__dark;
+      border-radius: 50%;
+    }
+
+    &:first-child,
+    &:last-child {
+      a {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+      }
+      @include breakpoint($phone__all) {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,251 @@
+.about {
+  .main__wrap {
+
+    align-items: flex-start;
+    max-width: 590px;
+
+
+    @include breakpoint($mobile__all) {
+      max-width: 100%;
+      .main__title {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-between;
+
+        .img-wrap {
+          width: 490px;
+        }
+      }
+    }
+
+    @include breakpoint($phone__all) {
+      padding-top: 50px;
+      .main__title {
+        justify-content: flex-start;
+
+        .img-wrap {
+          margin-top: auto;
+          width: 290px;
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      li {
+        @extend h3;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        padding-left: 30px;
+        position: relative;
+
+        b {
+          font-size: 40px;
+          line-height: 54px;
+
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+
+        & > span {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translate(-50%, -50%);
+
+          &:before, &:after {
+            @include pseudoElement(20px);
+            background-color: transparent;
+            left: 0;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            border: {
+              width: 1px;
+              style: solid;
+              color: $color__light;
+              radius: 50%;
+            }
+          }
+
+          &:after {
+            @include pseudoElement(10px);
+            background-color: $color__light;
+            border: none;
+          }
+        }
+
+        &:last-child {
+          text-align: left;
+
+          span {
+            top: 22px;
+          }
+        }
+
+        @include breakpoint($phone__all) {
+          font-size: 18px;
+          line-height: 24px;
+          b {
+            font-size: 22px;
+            line-height: 30px;
+          }
+        }
+      }
+
+      @include breakpoint($mobile__all) {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      @include breakpoint($phone__all) {
+        padding-left: 13px;
+      }
+    }
+  }
+
+  &__text {
+    p {
+      margin-top: 3rem;
+    }
+  }
+
+
+  &__text,
+  &__contacts,
+  &__command, {
+
+    color: $color__light;
+    background: {
+      size: cover;
+      color: $color__primary;
+    }
+  }
+
+  &__command {
+    background: url('#{$imgPath}/smoke2.png') $color__primary;
+    // height: 997px;
+    background: {
+      size: 100%;
+      repeat: no-repeat
+    }
+  }
+
+  &__contacts {
+    .catalog__button {
+
+      margin: 150px auto 0;
+       @include breakpoint ($mobile__all) {
+           max-width: 460px;
+         margin: 50px auto 0;
+        }
+    }
+  }
+}
+
+.command {
+
+  &__content {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    @include breakpoint($tablet__all) {
+      justify-content: space-around;
+    }
+    @include breakpoint($phone__all) {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+
+  &__cart {
+    width: 33%;
+    margin: 15px;
+    @extend %flex-column-center;
+    @include breakpoint($tablet__portrait) {
+      width: 180px;
+    }
+    @include breakpoint($phone__all) {
+      width: 100%;
+      margin: 0 0 50px;
+    }
+
+    h4 {
+      font-size: 35px;
+      line-height: 47px;
+      text-transform: uppercase;
+      font-weight: bold;
+      @include breakpoint($tablet__all) {
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+
+    p {
+      font-size: 25px;
+      line-height: 33px;
+      @include breakpoint($tablet__all) {
+        font-size: 17px;
+        line-height: 22px;
+      }
+      @include breakpoint($phone__all) {
+        font-size: 20px;
+        line-height: 27px;
+      }
+    }
+
+    .img-wrap {
+      border-radius: 25px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.contacts {
+  &__wrap {
+    display: flex;
+    @include breakpoint($mobile__all) {
+      flex-direction: column;
+    }
+  }
+
+  &__phones {
+    flex-basis: 620px;
+    @include breakpoint($mobile__all) {
+      flex-basis: 100%;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+    h2 {
+      margin-bottom: 70px;
+       @include breakpoint ($mobile__all) {
+         margin-bottom: 2rem;
+        }
+    }
+
+    @extend %flex-column-start;
+
+    .footer__phones--item, .footer__phones--adress {
+      flex-direction: row-reverse;
+      margin-bottom: 1rem;
+
+      & > span {
+        margin-left: 1rem;
+      }
+       @include breakpoint ($phone__all) {
+           flex-direction: column;
+        }
+    }
+  }
+
+  &__map {
+    width: 100%;
+  }
+}
+

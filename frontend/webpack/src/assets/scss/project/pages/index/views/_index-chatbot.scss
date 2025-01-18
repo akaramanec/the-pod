@@ -1,0 +1,157 @@
+.main-chatbot {
+  color: $color__light;
+  background: url('#{$imgPath}/product/bg1.png') $color__primary;
+  background: {
+    size: cover;
+  };
+
+  &__content {
+    display: flex;
+    height: 860px;
+    @include breakpoint($phone__all) {
+      height: auto;
+      flex-direction: column-reverse;
+      padding-top: 160px;
+    }
+  }
+
+  &__description {
+    flex-basis: 640px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      text-align: left;
+      margin-bottom: 25px;
+      @include breakpoint($phone__all) {
+        position: absolute;
+        top: 0;
+      }
+    }
+
+    p {
+      margin-bottom: 40px;
+    }
+
+    @include breakpoint($desktop__laptop) {
+      flex-basis: 470px;
+    }
+    @include breakpoint($tablet__all) {
+      flex-basis: 600px;
+    }
+    @include breakpoint($phone__all) {
+      flex-basis: unset;
+      width: 100%;
+      h2, p {
+        text-align: center;
+      }
+    }
+
+  }
+
+  &__phones {
+    position: relative;
+    flex: auto;
+
+    .device {
+      $same-top: 0;
+      $same-left: 50px;
+
+      &-iphone-x {
+        position: absolute;
+
+        transform: scale(.8);
+
+        &:first-child {
+          position: relative;
+
+          z-index: z(content);
+          top: 70px;
+          left: 205px + $same-left;
+          @include breakpoint($tablet__all) {
+            left: $same-left;
+          }
+        }
+
+        &:nth-of-type(1) {
+          z-index: z(top-content);
+          @include breakpoint($tablet__all) {
+            left: 10px;
+            top: 150px;
+          }
+           @include breakpoint ($phone__all) {
+             top: -192px;
+             left: -109px;
+            }
+        }
+
+        @include breakpoint($desktop__all) {
+          top: -65px;
+          left: 0 + $same-left;
+        }
+        @include breakpoint($tablet__all) {
+          transform: scale(.6);
+          top: -102px;
+          left: -60px;
+        }
+        @include breakpoint($phone__all) {
+          top: -113px;
+          left: 7px;
+          transform: scale(.35);
+        }
+      }
+    }
+
+    @include breakpoint($phone__all) {
+      width: 100%;
+      position: unset;
+      height: 400px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    @include breakpoint($phone__all) {
+      width: 100%;
+    }
+  }
+
+  &__btn {
+    width: 370px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    @include breakpoint($phone__all) {
+      width: 100%;
+      font-size: 16px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    &:before {
+      left: 8px;
+      top: 6px;
+    }
+
+    &:first-child:before {
+      @include pseudoElement(46px, 'viber-chat.svg');
+      @include breakpoint($phone__all) {
+        @include pseudoElement(30px, 'viber-chat.svg')
+      }
+    }
+
+    &:last-child:before {
+      @include pseudoElement(46px, 'telegram-chat.svg');
+      left: 6px;
+      @include breakpoint($phone__all) {
+        @include pseudoElement(30px, 'telegram-chat.svg')
+      }
+    }
+  }
+}

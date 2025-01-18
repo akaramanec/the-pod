@@ -1,0 +1,29 @@
+.modal__basket.show
+  .basket__content
+    header.basket__header
+      h3.basket__title Корзина
+        span.total_qty (1)
+      button.basket__toggle
+        span
+
+    .basket__body
+      include basket-cart
+      include basket-cart
+      include basket-cart
+      include basket-cart
+      include basket-cart
+      include basket-cart
+      include basket-cart
+      include basket-cart
+
+    footer.basket__footer
+      .sumwrap
+        p.basket__sum
+          | всего:
+          span.sum_total 1141 грн
+      .basket__buttons
+        a.base-button.btn--dark(href='/order') Оформить заказ
+        a.base-button.btn--dark(href='#', data-dismiss='modal') Продолжить покупки
+
+
+

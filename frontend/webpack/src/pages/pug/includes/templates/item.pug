@@ -1,0 +1,12 @@
+mixin productItem(data,index,button)
+
+  .products__item
+    .container
+      .products__content(class=`product-` + (index + 1))
+        .products__img
+          +Img(data[index].img)
+        .products__description
+          h2=data[index].title
+          p=data[index].description
+          if button
+            +ButtonLink('catalog','детальнее','btn--light product__button')

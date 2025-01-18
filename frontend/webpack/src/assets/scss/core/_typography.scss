@@ -1,0 +1,267 @@
+$font__line-height: auto;
+$font__size: 18px;
+$font__weight: normal;
+$font__family: 'Gilroy';
+$font__file-name: 'Gilroy-';
+$font__path: '/assets/fonts/#{$font__file-name}';
+$font__ext: (woff, woff2);
+$font__types: (
+    ('Medium', 500, normal),
+    ('SemiBold', 600, normal),
+    ('Bold', bold, normal),
+    ('Regular', normal, normal),
+);
+
+@each $name, $weight, $style in $font__types {
+  @include font-face($font__family, $font__path+$name, $weight, $style, $font__ext);
+}
+
+
+html {
+  font-size: $font__size;
+  line-height: $font__line-height;
+
+  height: 100%;
+
+  @include breakpoint($desktop__laptop) {
+    font-size: 16px;
+  }
+  @include breakpoint($tablet__all) {
+    font-size: 15px;
+  }
+  @include breakpoint(($width__mobile-min + 1) $width__tablet-port) {
+    font-size: 14px;
+  }
+  @include breakpoint($width__min ($width__mobile-min + 1)) {
+    font-size: 12px;
+  }
+}
+
+body {
+
+  font-family: $font__family;
+  font-size: $font__size;
+  font-weight: $font__weight;
+
+  margin: 0;
+  padding: 0;
+
+  color: $color__font--primary;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  color: inherit;
+  border: none;
+  background-color: transparent;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+p,
+a,
+b,
+span,
+li {
+  font-size: rem($font__size);
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+a {
+  transition: .3s;
+  text-decoration: none;
+
+  color: $color__font--primary;
+
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+
+    outline: 0;
+  }
+
+  & > span {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+p:last-of-type {
+  margin-bottom: 0;
+}
+
+//Font sizes
+h1 {
+  font: {
+    weight: normal;
+    size: 45px;
+  }
+  line-height: 60px;
+
+  color: $color__font--secondary;
+
+  text: {
+    transform: uppercase;
+
+    align: center;
+  };
+  @include breakpoint($tablet__all) {
+    font-size: 34px;
+    line-height: 46px;
+  }
+  @include breakpoint($phone__all) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  span {
+    font-size: 70px;
+    line-height: 94px;
+    margin-right: 1rem;
+
+    @include breakpoint($tablet__all) {
+      font-size: 53px;
+      line-height: 70px;
+
+    }
+    @include breakpoint($phone__all) {
+      font-size: 45px;
+      line-height: 60px;
+    }
+  }
+
+  p {
+    margin: 25px auto 0;
+
+    max-width: 570px;
+    font-size: 30px;
+    line-height: 40px;
+    text: {
+      align: center;
+      transform: none;
+    }
+
+    @include breakpoint($tablet__all) {
+      font-size: 22px;
+      line-height: 30px;
+      margin: 18px auto 0;
+    }
+    @include breakpoint($phone__all) {
+      font-size: 20px;
+      line-height: 27px;
+    }
+  }
+}
+
+h2 {
+  font-size: 50px;
+  line-height: 67px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  @include breakpoint($tablet__all) {
+    font-size: 35px;
+    line-height: 47px;
+  }
+  @include breakpoint($phone__all) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+
+h3 {
+  font-size: 30px;
+
+  line-height: 40px;
+
+  @include breakpoint($phone__all) {
+    font-size: 25px;
+    line-height: 33px;
+  }
+}
+
+p {
+  font-size: 20px;
+  line-height: 33px;
+
+  @include breakpoint($mobile__all) {
+    line-height: 27px;
+  }
+}
+
+a {
+  color: $color__font--secondary;
+  font-size: 20px;
+  line-height: 27px;
+
+  @include breakpoint($tablet__all) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &.link {
+    position: relative;
+
+    &:after {
+      @include pseudoElement(1px);
+      top: 27px;
+      transition: all $animation-fast;
+      max-width: 0;
+      width: 100%;
+    }
+
+    &:hover {
+      color: $color__font--secondary;
+      @include breakpoint($desktop__all) {
+        &:after {
+          max-width: 100%;
+          background-color: $color__light;
+        }
+      }
+    }
+  }
+}

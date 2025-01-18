@@ -1,0 +1,213 @@
+.footer {
+  background-color: black;
+
+  %mobile-align {
+    @include breakpoint($phone__all) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+
+  &__info {
+    display: grid;
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    grid-template: 'logo nav links phones' 190px/
+        4fr 2fr 2fr 4fr;
+    @include breakpoint($desktop__laptop) {
+      grid-template: 'logo nav links phones' 190px/
+            4fr 2fr 3fr 4fr;
+    }
+    @include breakpoint($tablet__portrait) {
+      justify-content: center;
+
+      grid-row-gap: 3rem;
+      grid-template: 'logo links' 80px
+            'nav phones' auto/
+            1fr 1fr;
+    }
+    @include breakpoint($phone__all) {
+      grid-row-gap: 20px;
+      grid-template: 'logo' auto
+            'nav' auto
+            'links' auto
+            'phones' auto/
+            1fr;
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    @include breakpoint($tablet__portrait) {
+      height: 100%;
+      .img-wrap {
+        width: unset;
+        height: inherit;
+
+        img {
+          width: unset;
+          height: inherit;
+        }
+      }
+    }
+    @extend %mobile-align;
+
+    .img-wrap {
+      width: 80%;
+    }
+  }
+
+  &__nav {
+    grid-area: nav;
+    @extend %mobile-align;
+
+    ul {
+      justify-content: space-between;
+
+      height: 100%;
+
+      @extend %flex-column-start;
+      @include breakpoint($mobile__all) {
+        li {
+          margin-bottom: 1rem;
+        }
+      }
+      @include breakpoint($phone__all) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__links {
+    grid-area: links;
+    @extend %flex-column-start;
+    @extend %mobile-align;
+    @include breakpoint($tablet__portrait) {
+      align-items: flex-end;
+    }
+
+    .link {
+      position: relative;
+
+      display: flex;
+
+      margin-bottom: 2rem;
+
+      transition: all $animation-fast;
+
+      @include breakpoint($desktop__all) {
+        &:hover {
+          transform: scale(1.02);
+        }
+      }
+
+      &:after {
+        display: none;
+      }
+
+      &:before {
+        margin-right: .8rem;
+
+        @include pseudoElement(30px, 'telegram-ico.svg', relative);
+      }
+
+      &:last-child:before {
+        @include pseudoElement(30px, 'viber-ico.svg', relative);
+      }
+    }
+  }
+
+  &__phones {
+    align-items: flex-end;
+    justify-content: space-between;
+
+    color: $color__light;
+
+    grid-area: phones;
+    @extend %mobile-align;
+    @extend %flex-column-start;
+
+    &--item,
+    &--adress {
+      display: flex;
+      align-items: center;
+
+      @include breakpoint($phone__all) {
+        flex-direction: column;
+
+        margin-bottom: 1rem;
+      }
+
+      & > span {
+        font-size: 12px;
+        line-height: 16px;
+
+        margin-right: .5rem;
+
+        color: $color__border--primary;
+      }
+    }
+
+    &--adress {
+      margin: 30px 0 auto;
+    }
+  }
+
+  &__pocitics {
+    height: 60px;
+
+    border-top: 1px solid #3D3D3D;
+
+
+    & > .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      height: 100%;
+      @include breakpoint($phone__all) {
+        flex-direction: column;
+        justify-content: center;
+        a {
+          margin-top: 5px;
+          margin-bottom: 5px;
+          &:last-child {
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            margin-bottom: 0;
+            margin-top: 0;
+          }
+        }
+
+      }
+    }
+
+
+    a.link {
+      font-size: 16px;
+      line-height: 21px;
+
+      color: $color__border--primary;
+
+      @include breakpoint($phone__all) {
+        font-size: 11px;
+        line-height: 16px;
+      }
+
+      &:hover {
+        &:after {
+          background-color: $color__border--primary;
+        }
+      }
+
+
+    }
+  }
+}

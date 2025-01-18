@@ -1,0 +1,141 @@
+@mixin css-triangle(
+  $color,
+  $direction,
+  $size: 6px,
+  $position: absolute,
+  $round: false) {
+  position: $position;
+
+  width: 0;
+  height: 0;
+  @if $round {
+    border-radius: 3px;
+  }
+  @if $direction == down {
+    margin-top: 0 - round( $size / 2.5 );
+
+    border-top: $size solid $color;
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+  } @else if $direction == up {
+    margin-bottom: 0 - round( $size / 2.5 );
+
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+  } @else if $direction == right {
+    margin-right: -$size;
+
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  } @else if $direction == left {
+    margin-left: -$size;
+
+    border-top: $size solid transparent;
+    border-right: $size solid $color;
+    border-bottom: $size solid transparent;
+  }
+}
+
+@mixin cross($size,$width,$height,$color,$rotate: 45deg) {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  @include size($size);
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: $width;
+    height: $height;
+
+    content: '';
+    transform: translate(-50%, -50%) rotate($rotate);
+
+    background-color: $color;
+  }
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: $height;
+    height: $width;
+
+    content: '';
+    transform: translate(-50%, -50%) rotate($rotate);
+
+    background-color: $color;
+  }
+}
+
+@mixin semi-cross($size,$width,$height,$color,$rotate: 45deg) {
+  @include cross($size, $width, $height, $color, $rotate: 45deg);
+  transform: rotate($rotate);
+  &:after, &:before {
+    display: block;
+    transform: unset;
+    top: unset;
+    left: unset;
+    bottom: unset;
+    right: unset;
+  }
+}
+
+@mixin line($width,$height,$color) {
+  @include pseudoElement($width);
+  height: $height;
+  background-color: $color;
+}
+
+@mixin on-circle($item-count, $circle-size, $item-size) {
+  position: relative;
+  width: $circle-size;
+  height: $circle-size;
+  border-radius: 50%;
+  padding: 0;
+  list-style: none;
+
+  > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -($item-size / 2);
+    width: $item-size;
+    height: $item-size;
+
+    $angle: (360 / $item-count);
+    $rot: 0;
+
+    @for $i from 1 through $item-count {
+      &:nth-of-type(#{$i}) {
+        transform: rotate($rot * 1deg) translate($circle-size / 2) rotate($rot * -1deg);
+      }
+
+      $rot: $rot + $angle;
+    }
+  }
+}
+
+@mixin burgerLines($quantity,$line-height) {
+  .burger-shape {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    @for $i from 1 through $quantity {
+      div:nth-child(#{$i}) {
+        display: block;
+        @include size(100%, $line-height);
+        background-color: $color__light;
+        border-radius: 10px;
+      }
+    }
+  }
+}

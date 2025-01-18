@@ -1,0 +1,157 @@
+.modal-backdrop {
+  &.show {
+    background-color: rgba($color__dark, .8);
+    z-index: z(modal-bg);
+  }
+}
+
+.modal__basket {
+  background-color: rgba($color__dark, .8);
+  top: 0;
+  left: 0;
+  z-index: z(modal);
+  width: 100%;
+  display: none !important;
+  position: fixed;
+  margin: 0;
+
+  min-height: 100vh;
+
+  max-height: unset;
+
+  &.show {
+    display: block !important;
+  }
+}
+
+.basket {
+  &__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 540px;
+    min-height: 100vh;
+    background-color: #fff;
+    @extend %flex-column-center;
+    justify-content: space-between;
+    @include breakpoint($phone__all) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+
+    span {
+      margin-left: 1rem;
+      @extend h3;
+    }
+  }
+
+  &__header, &__footer, &__body {
+    padding: 30px;
+    width: 100%;
+    @include breakpoint($phone__all) {
+      padding: 20px 10px 10px;
+    }
+  }
+
+  &__body {
+    max-height: calc(100vh - (100px + 200px));
+    overflow-y: auto;
+    @import "basket-card";
+    @include breakpoint($desktop__laptop) {
+
+
+      flex-grow: 1;
+    }
+
+    @include breakpoint($phone__all) {
+      height: 300px;
+    }
+
+  }
+
+  &__header {
+    position: relative;
+    padding-bottom: 0;
+
+    h5 {
+      text-align: center;
+    }
+
+    button {
+      position: absolute;
+    }
+
+    .basket__toggle {
+      border: 1px solid $color__dark;
+      border-radius: 50%;
+      @include cross(40px, 20px, 2px, $color__dark);
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 40px;
+    }
+  }
+
+  &__footer {
+    padding-top: 0;
+    border-top: 1px solid $color__border--primary;
+    @extend %flex-column-center;
+
+    .sumwrap {
+      margin-top: 18px;
+      margin-bottom: 20px;
+      @include breakpoint($desktop__laptop) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      @include breakpoint($phone__all) {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+
+    @include breakpoint($desktop__laptop) {
+      padding-bottom: 5px;
+    }
+    @include breakpoint($phone__all) {
+      padding: 0px 10px 100px !important;
+    }
+  }
+
+  &__sum {
+    span {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 40px;
+      @include breakpoint($desktop__laptop) {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+  }
+
+  &__buttons {
+    width: 100%;
+
+    a {
+      height: 60px;
+      width: inherit;
+      margin-bottom: 15px;
+      @include breakpoint($desktop__laptop) {
+        height: 40px;
+        margin-bottom: 10px;
+        padding: 0 25px;
+      }
+      @include breakpoint($phone__all) {
+        padding: 0 25px;
+        margin-bottom: 10px;
+        height: 40px;
+      }
+    }
+  }
+}
+

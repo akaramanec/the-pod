@@ -1,0 +1,91 @@
+{
+  "id": "1fbf78b9-ec49-11ea-0a80-023c004b4a42",
+  "meta": {
+    "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/1fbf78b9-ec49-11ea-0a80-023c004b4a42",
+    "type": "counterparty",
+    "uuidHref": "https://online.moysklad.ru/app/#company/edit?id=1fbf78b9-ec49-11ea-0a80-023c004b4a42",
+    "mediaType": "application/json",
+    "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata"
+  },
+  "name": "Валера Вввввввв",
+  "tags": [],
+  "email": "igorgaidalov@gmail.com",
+  "files": {
+    "meta": {
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/1fbf78b9-ec49-11ea-0a80-023c004b4a42/files",
+      "size": 0,
+      "type": "files",
+      "limit": 1000,
+      "offset": 0,
+      "mediaType": "application/json"
+    }
+  },
+  "group": {
+    "meta": {
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/group/d6c84a6b-ad7a-11ea-0a80-090d0000a970",
+      "type": "group",
+      "mediaType": "application/json",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/group/metadata"
+    }
+  },
+  "notes": {
+    "meta": {
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/1fbf78b9-ec49-11ea-0a80-023c004b4a42/notes",
+      "size": 0,
+      "type": "note",
+      "limit": 1000,
+      "offset": 0,
+      "mediaType": "application/json"
+    }
+  },
+  "owner": {
+    "meta": {
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/employee/1a2a575a-cd98-11ea-0a80-05f2000782dd",
+      "type": "employee",
+      "uuidHref": "https://online.moysklad.ru/app/#employee/edit?id=1a2a575a-cd98-11ea-0a80-05f2000782dd",
+      "mediaType": "application/json",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/employee/metadata"
+    }
+  },
+  "phone": "380999999999",
+  "state": {
+    "meta": {
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata/states/d6f035c9-ad7a-11ea-0a80-090a00228fbe",
+      "type": "state",
+      "mediaType": "application/json",
+      "metadataHref": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/metadata"
+    }
+  },
+  "shared": false,
+  "created": "2020-09-01 14:48:59.734",
+  "updated": "2020-09-01 14:48:59.734",
+  "accounts": {
+    "meta": {
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/1fbf78b9-ec49-11ea-0a80-023c004b4a42/accounts",
+      "size": 0,
+      "type": "account",
+      "limit": 1000,
+      "offset": 0,
+      "mediaType": "application/json"
+    }
+  },
+  "archived": false,
+  "accountId": "d6c7fe56-ad7a-11ea-0a80-090d0000a96f",
+  "companyType": "legal",
+  "salesAmount": 0,
+  "externalCode": "7epNgwxGiZ0ps504b7yBK3",
+  "actualAddress": "м. Олександрія, Олександрійська міськрада, Кіровоградська обл. Отделение №3 (до 30 кг на одно место): просп. Соборный (ран. Ленина), 111",
+  "contactpersons": {
+    "meta": {
+      "href": "https://online.moysklad.ru/api/remap/1.2/entity/counterparty/1fbf78b9-ec49-11ea-0a80-023c004b4a42/contactpersons",
+      "size": 0,
+      "type": "contactperson",
+      "limit": 1000,
+      "offset": 0,
+      "mediaType": "application/json"
+    }
+  },
+  "actualAddressFull": {
+    "addInfo": "м. Олександрія, Олександрійська міськрада, Кіровоградська обл. Отделение №3 (до 30 кг на одно место): просп. Соборный (ран. Ленина), 111"
+  }
+}

@@ -1,0 +1,21 @@
+<?php
+Yii::setAlias('@common', dirname(__DIR__));
+Yii::setAlias('@frontend', dirname(dirname(__DIR__)) . '/frontend');
+Yii::setAlias('@backend', dirname(dirname(__DIR__)) . '/backend');
+Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
+Yii::setAlias('@src', dirname(dirname(__DIR__)) . '/src');
+Yii::setAlias('@blog', dirname(dirname(__DIR__)) . '/blog');
+const SHOP_CATEGORY = 1;
+const SHOP_PRODUCT = 2;
+const SHOP_BRAND = 3;
+const SHOP_DISCOUNT = 4;
+const SHOP_MOD = 5;
+const SHOP_ATTRIBUTE_VALUE = 6;
+const NEWSLETTER = 7;
+const ADMIN = 8;
+const NOTICE = 9;
+const POD_FAQ = 10;
+const SITE_PAGE = 11;
+const REVIEW_SLIDER = 12;
+const STAFF = 13;
+const NOTICE_NP = 14;

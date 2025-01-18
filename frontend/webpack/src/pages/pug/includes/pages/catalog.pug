@@ -1,0 +1,28 @@
+extends ../layout/base
+include ../templates/item
+block variables
+  -
+    let productsData = [
+      {
+        img: basePath + 'product/im1.png',
+        bg: basePath + 'product/bg1.png',
+        title: `почему именно vaporlax`,
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      },]
+
+block main
+  main.main.catalog
+    include ../layout/header
+    //include catalog/components/basket
+    .main-catalog
+      .container
+        .catalog__title
+          h2 Популярные товары
+        .catalog__content
+          .catalog__filter
+            include catalog/components/filter
+          .catalog__wrap
+            - for(let i = 0; i < 20; i++)
+              include index/components/itemCart
+
+

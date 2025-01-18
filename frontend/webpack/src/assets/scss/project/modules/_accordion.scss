@@ -1,0 +1,45 @@
+.faq {
+  padding-bottom: 1rem;
+  background-size: 175% !important;
+  height: auto;
+}
+
+.accordion {
+
+  max-width: 700px;
+
+
+  color: $color__font--secondary;
+  background-color: $color__secondary;
+
+  padding: 30px 20px;
+  margin: 5rem auto 0;
+
+  &__header {
+    display: flex;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__toggle {
+    font-size: 20px;
+
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    color: $color__font--secondary;
+    border-bottom: 1px solid $color__light;
+  }
+
+  &__text {
+    font-size: 17px;
+
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}

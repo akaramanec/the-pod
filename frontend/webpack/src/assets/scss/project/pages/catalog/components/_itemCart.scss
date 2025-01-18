@@ -1,0 +1,314 @@
+.item-card {
+
+  @include size(100%);
+  height: 575px;
+  text-align: center;
+  @extend %flex-column-center;
+  justify-content: flex-start;
+  @include breakpoint($desktop__all) {
+    &:hover {
+      .item-card {
+
+        &__link.link,
+        &__price {
+          color: rgba($color__dark, .5)
+        }
+
+        &__buttons {
+          opacity: 1;
+        }
+
+        &__img--base {
+          opacity: 0;
+        }
+
+        &__img--hover {
+          opacity: 1;
+        }
+      }
+
+    }
+  }
+  @include breakpoint($mobile__all) {
+    padding: 5px;
+  }
+  @include breakpoint($tablet__all) {
+    height: 450px;
+  }
+  @include breakpoint($phone__all) {
+    width: 100%;
+    height: auto;
+  }
+
+  %img-base {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+  }
+
+  &__img {
+    width: 100%;
+    position: relative;
+    height: 360px;
+
+    &--base {
+      width: 100%;
+      @extend %img-base;
+      opacity: 1;
+      @include breakpoint($mobile__all) {
+        position: relative !important;
+        width: auto;
+        height: 100%;
+        .img-wrap,
+        img {
+          width: inherit;
+          height: inherit;
+        }
+      }
+    }
+
+    &--hover {
+      width: 100%;
+      @extend %img-base;
+      opacity: 0;
+      @include breakpoint($mobile__all) {
+        display: none;
+      }
+    }
+
+    @include breakpoint($mobile__all) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 230px;
+    }
+
+
+  }
+
+  &__link {
+    color: $color__dark;
+    font-size: 20px;
+    line-height: 27px;
+    height: 85px;
+    // height: auto;
+    margin-bottom: 0.7rem;
+    @include ie11() {
+      width: inherit;
+    }
+    @include breakpoint($phone__all) {
+      height: 80px;
+    }
+     @include breakpoint ($mobile__all) {
+         &:hover {
+           color: $color__font--primary !important;
+         }
+      }
+  }
+
+  &__body {
+    @extend %flex-column-center;
+    @include ie11() {
+      width: 100%;
+    }
+  }
+
+  &__buttons {
+    display: none;
+    width: 100%;
+    margin-top: auto;
+    opacity: 0;
+    transition: all $animation-fast;
+    @extend %flex-column-center;
+    @include breakpoint($desktop__all) {
+      display: block;
+    }
+
+    button, a {
+      width: 100%;
+      padding: 10px 20px;
+       @include breakpoint ($desktop__laptop) {
+         padding: 10px 13px;
+        }
+    }
+  }
+
+  &__price {
+    margin: auto auto 0;
+    // margin: 1rem;
+    transition: all $animation-fast;
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  &__btn {
+    min-width: unset;
+    width: 90%;
+    height: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0 auto;
+    font: {
+      size: 16px;
+      weight: bold;
+    };
+    text-transform: uppercase;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    @include ie11() {
+      min-width: 0;
+    }
+  }
+}
+
+.info-wrap {
+  p {
+    font-size: 13px;
+  }
+
+  & > .btn-toolbar > div {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    border: {
+      color: $color__border--primary;
+      width: 1px;
+      style: solid;
+      radius: 25px;
+    }
+
+    button {
+      flex-basis: 35px;
+      @include size(35px);
+
+      &:first-child {
+        border: {
+          right: 1px solid $color__border--primary;
+          radius: 50%;
+        }
+      }
+
+      &:last-child {
+        border: {
+          left: 1px solid $color__border--primary;
+          radius: 50%;
+        }
+      }
+    }
+
+    input {
+      width: auto;
+      text-align: center;
+      border-color: transparent;
+      color: $color__dark;
+    }
+  }
+
+}
+
+.order__card {
+  display: grid;
+  grid: {
+    gap: 10px;
+    template: {
+      areas: 'img name qty price delete ';
+      columns: 200px 4fr 2fr 2fr 1fr;
+    };
+  }
+  @include breakpoint($tablet__all) {
+    grid-template-columns: 100px 3fr 2fr 2fr 30px;
+  }
+
+  @include breakpoint($phone__all) {
+    grid: {
+      row-gap: 10px;
+      column-gap: 5px;
+      template: {
+        areas: 'img name delete' 'img qty delete' 'img price delete';
+        columns: 75px auto 30px;
+        rows: auto 30px 25px;
+      };
+    }
+  }
+
+  &-img {
+    grid-area: img;
+    justify-self: center;
+    align-self: center;
+  }
+
+  &-qty {
+    grid-area: qty;
+    justify-self: center;
+    align-self: center;
+    @include breakpoint($phone__all) {
+      justify-self: start;
+      & > .btn-toolbar > div {
+        height: 30px;
+
+        button {
+          flex-basis: 26px;
+          @include size(26px);
+        }
+
+        input {
+          height: 27px;
+        }
+
+      }
+    }
+
+  }
+
+  &-name {
+    grid-area: name;
+    justify-self: center;
+    align-self: center;
+
+    a {
+      color: $color__dark;
+      @include breakpoint($phone__all) {
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+
+  }
+
+  &-delete {
+    grid-area: delete;
+    justify-self: center;
+    align-self: center;
+
+    a {
+      display: block;
+      @include size(20px);
+      position: relative;
+
+      span {
+        z-index: z(content);
+        @include cross(20px, 15px, 1px, $color__dark);
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+
+  &-price {
+    grid-area: price;
+    justify-self: center;
+    align-self: center;
+    @include breakpoint($phone__all) {
+      justify-self: start;
+      p {
+        font-size: 16px;
+        line-height: 21px;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+header.header
+  .header__wrap.container
+    a.header__logo(href=basePath)
+      +Img('icons/logo.svg')
+
+    nav.header__nav
+      include ../templates/navlist
+      .header__basket.basket__toggle
+        +Img('icons/basket.svg')
+        span.header__basket--number(data-basket='0')
+    .header__nav-toggler
+      .burger-shape
+        - for(let x = 0; x < 3; x++)
+          div

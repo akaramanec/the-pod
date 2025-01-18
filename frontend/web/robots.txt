@@ -1,0 +1,3 @@
+Allow: /
+
+Sitemap: https://thepod.com.ua/sitemap.xml

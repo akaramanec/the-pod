@@ -1,0 +1,52 @@
+extends ../layout/base
+include ../templates/item
+block variables
+
+
+block main
+  main.main.about
+    include ../layout/header
+    .container
+      .main__wrap
+        h1.main__title
+          +Img('icons/logo.svg')
+          ul
+            li команда из
+              span
+              b 5 человек
+            li более
+              span
+              b 4 лет
+              | опыта
+            li
+              span
+              | единственные официальные импортеры продукции vaporlax в украине
+  section.about__text
+    .container
+      h2 THE POD
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+  section.about__command
+    .container
+      h2 Наша команда
+      .command__content
+        - for(let i = 0; i < 3; i++)
+          .command__cart
+            +Img('reviews/tony2.png')
+            h4 Тони старк
+            p герой
+  section.about__contacts
+    .container
+      .contacts__wrap
+        .contacts__phones
+          h2 контакты
+
+          each phones in contacts.phones
+            .footer__phones--item
+              span=phones.text
+              +Link(phones.number,phones.number,'',true,'phone')
+          .footer__phones--adress
+            span=contacts.address.text
+            +Link('contacts',contacts.address.data,'',false,'phone')
+        .contacts__map
+          +Img('map.png')
+      +ButtonLink('catalog','перейти в каталог','btn--light catalog__button')

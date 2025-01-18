@@ -1,0 +1,54 @@
+extends ../layout/base
+include ../templates/item
+block variables
+
+block main
+  main.main.order
+    include ../layout/header
+    section.main-catalog
+      .order__content
+        .container
+          include order/card
+          hr
+          .order__data
+            h2 Ввод личных данных
+            .form-group.field-ordercustomer-phone.required
+              label(for='ordercustomer-phone') Phone
+              input#ordercustomer-phone.form-control(type='text', name='OrderCustomer[phone]', aria-required='true', data-plugin-inputmask='inputmask_04a6dd46')
+              .invalid-feedback
+            .form-group.field-ordercustomer-email.required
+              label(for='ordercustomer-email') Email
+              input#ordercustomer-email.form-control(type='text', name='OrderCustomer[email]', aria-required='true')
+              .invalid-feedback
+            .form-group.field-ordercustomer-first_name.required
+              label(for='ordercustomer-first_name') First Name
+              input#ordercustomer-first_name.form-control(type='text', name='OrderCustomer[first_name]', aria-required='true')
+              .invalid-feedback
+            .form-group.field-ordercustomer-last_name.required
+              label(for='ordercustomer-last_name') Last Name
+              input#ordercustomer-last_name.form-control(type='text', name='OrderCustomer[last_name]', aria-required='true')
+              .invalid-feedback
+          .order__delivery
+            h2 Выбор отделения новой почты
+            form#order_form(action='/order', method='post')
+
+              .order__delivery
+                .form-group.field-order-payment_method.required
+                  input(type='hidden', name='Order[payment_method]', value='')
+                  #order-payment_method(role='radiogroup', aria-required='true')
+                    .custom-control.custom-radio
+                      input#i0.custom-control-input(type='radio', name='Order[payment_method]', value='2')
+                      label.custom-control-label(for='i0') При получении
+                    p Пожалуйста подготовьте сумму к оплате
+                    .custom-control.custom-radio
+                      input#i1.custom-control-input(type='radio', name='Order[payment_method]', value='3')
+                      label.custom-control-label(for='i1') Оплатить сейчас
+                      .invalid-feedback
+                    p
+                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam doloremque facere iste nostrum possimus sunt suscipit unde vitae! Accusamus adipisci asperiores eaque eum iure omnis quaerat recusandae reiciendis sequi sunt.
+          button.base-button.btn--dark.main__button(type='submit')
+                | Заказать
+
+
+
+

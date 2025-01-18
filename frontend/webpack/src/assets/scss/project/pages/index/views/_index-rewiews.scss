@@ -1,0 +1,12 @@
+.main-reviews {
+  background-color:$color__primary ;
+  .reviews {
+    &__title {
+      color: $color__light;
+    }
+    &__content {
+      margin-top: 100px;
+    }
+  }
+  @import "../components/slider";
+}

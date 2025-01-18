@@ -1,0 +1,9 @@
+FROM mysql:8.0
+ENV MYSQL_DATABASE=database
+ENV MYSQL_USER=database
+ENV MYSQL_PASSWORD=database
+ENV MYSQL_ROOT_PASSWORD=database
+
+RUN chown 1000:1000 /var/lib/mysql
+
+EXPOSE 3306:3306

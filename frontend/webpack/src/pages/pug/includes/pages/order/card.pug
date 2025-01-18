@@ -1,0 +1,17 @@
+.order__card
+  .order__card-img
+    img(src='https://datapod.devboto.website/uploads/cache/product/30/244x342_Vaporlax-Nano-Banana-Ice-1.jpg', alt='VAPORLAX - ICE BANANA - 400 puff', title='VAPORLAX - ICE BANANA - 400 puff')
+  p.order__card-name
+    a(href='/product/vaporlax-ice-banana-300')
+      | VAPORLAX - ICE BANANA - 400 puff
+  .order__card-qty.info-wrap
+    .btn-toolbar.d-flex.align-items-center(role='toolbar')
+      .btn-group.d-flex.align-items-center.mr-2(role='group')
+        button.minus-order.minus(type='button', data-id='13') -
+        input.input_qty.input_qty_13(type='text', size='3', value='2', data-id='13')
+        button.plus-order.plus(type='button', data-id='13') +
+  .order__card-delete
+    a(href='/cart/del-item?id=13')
+      span
+  .order__card-price
+    p 15 000,00 ₴

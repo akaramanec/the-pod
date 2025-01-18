@@ -1,0 +1,55 @@
+extends ../layout/base
+include ../templates/item
+block variables
+
+block main
+  main.main.product
+    include ../layout/header
+    section.product__main
+      .container
+        .product__content
+          .product__img
+            img.product__img-main(src='https://datapod.devboto.website/uploads/cache/product/29/244x342_Vaporlax-Nano-Pineapple-Ice-1_900x.jpg', alt='VAPORLAX - ICE PINEAPPLE - 400 puff')
+            .product__img-wrap
+              .img-wrap
+                img(src='https://datapod.devboto.website/uploads/cache/product/29/244x342_Vaporlax-Nano-Pineapple-Ice-1_900x.jpg', alt='VAPORLAX - ICE PINEAPPLE - 400 puff')
+              .img-wrap
+                img(src='https://datapod.devboto.website/uploads/cache/product/29/244x342_Vaporlax-Nano-Pineapple-Ice-2.jpg', alt='VAPORLAX - ICE PINEAPPLE - 400 puff')
+          .product__description-main
+
+            h1 VAPORLAX - ICE PINEAPPLE - 400 puff
+            .product__stats
+              ul
+                li Бренд:
+                  span  Vaporlax
+                li температура тяги:
+                  span  холодный
+                li послевкусие:
+                  span  кислый, нейтральный
+                li Количество тяг:
+                  span  300
+                li Вкус:
+                  span  PINEAPPLE ICE
+                li Количество тяг:
+                  span  400
+            .product__price
+              p Цена:
+                span 15000.00
+            .info-wrap
+              span Количество
+              .btn-toolbar.d-flex.align-items-center(role='toolbar')
+                .btn-group.d-flex.align-items-center.mr-2(role='group')
+                  button.minus-static.minus(type='button', data-id='35') -
+                  input.input_qty.input_qty_35(type='text', size='3', value='1', data-id='35')
+                  button.plus-static.plus(type='button', data-id='35') +
+            .product__buttons
+              button.base-button.item-card__btn.btn--dark.add-to-cart(data-id='35')
+                | Купить сейчас
+              a.base-button.item-card__btn.btn--dark(href='/order') В корзину
+          .product__description-second
+            p The VAPORLAX Disposable Pod Device is powered by 1000mAh built-in battery. And the VAPORLAX Disposable Pod comes with various flavors for your different selection. Please take it home and enjoy the beautiful taste.
+
+
+
+
+

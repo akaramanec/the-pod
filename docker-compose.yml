@@ -1,0 +1,64 @@
+version: '3.2'
+services:
+  db:
+    build: ./docker/db
+    container_name: the_pod-db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    volumes:
+      - ./docker/db/database:/var/lib/mysql
+      - ./docker/db/dump:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    networks:
+      the_pod-network:
+
+  web:
+    build: ./docker/web
+    container_name: the_pod-web
+    environment:
+      - APACHE_RUN_USER=#1000
+    volumes:
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      - ./:/app:delegated
+      - ./docker/web/apache.ports.conf:/etc/apache2/ports.conf
+      - ./docker/web/apache.default.conf:/etc/apache2/sites-available/000-default.conf
+    ports:
+      - '8001:8001'
+      - '8002:8002'
+    depends_on:
+      - db
+    networks:
+      the_pod-network:
+
+  phpmyadmin:
+    build: ./docker/phpmyadmin
+    container_name: the_pod-phpmyadmin
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - '8060:80'
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    networks:
+      the_pod-network:
+
+  nginx:
+    build: ./docker/nginx
+    container_name: the_pod-nginx
+    restart: unless-stopped
+    volumes:
+      - ./docker/nginx/nginx.local.conf:/etc/nginx/conf.d/nginx.conf
+    depends_on:
+      - web
+    networks:
+      the_pod-network:
+    ports:
+      - 80:80
+
+networks:
+  the_pod-network:
+    driver: bridge

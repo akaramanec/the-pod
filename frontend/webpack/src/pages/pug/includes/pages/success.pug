@@ -1,0 +1,52 @@
+extends ../layout/base
+include ../templates/item
+block variables
+  -
+    let productsData = [
+      {
+        img: basePath + 'product/im1.png',
+        bg: basePath + 'product/bg1.png',
+        title: `почему именно vaporlax`,
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      },]
+
+block main
+  main.main
+    include ../layout/header
+    .success-popup
+      .success-popup__content
+          h2 Спасибо за заказ!
+          .row
+            .col-md-6
+              p
+                | Мы уведомим вас о любом изменении в заказе по почте или в мессенджере (для этого выберете любой
+                | удобный
+                | вам ваирант)
+              .main-chatbot__buttons
+                a.base-button.btn--dark.main-chatbot__btn(href='https://t.me/pod_dev_bot?start=site') telegram
+                a.base-button.btn--dark.main-chatbot__btn(href='https://pod.devboto.website/link-bot/site') viber
+            .col-md-6.text-right
+              p Цена всего: 150,00 ₴
+              p Общее количество: 1 шт.
+              p Оплата: При получении
+          .row
+            .col-md-12
+              table.table
+                thead
+                  tr
+                    th(scope='col') #
+                    th(scope='col') Название
+                    th(scope='col', width='5%') К-во
+                    th(scope='col', width='15%') Цена
+                    th(scope='col', width='15%') Цена всего
+                    th(scope='col', width='85') Код
+                tbody
+                  tr
+                    td(width='100')
+                      img(src='https://datapod.devboto.website/uploads/cache/product/28/244x342_Vaporlax-Nano-Lush-Ice-1.jpg', alt='VAPORLAX NANO - LUSH ICE - 400 puff', title='VAPORLAX NANO - LUSH ICE - 400 puff', width='50')
+                    td VAPORLAX NANO - LUSH ICE - 400 puff
+                    td 1
+                    td 150,00 ₴
+                    td 150,00 ₴
+                    td 000047
+

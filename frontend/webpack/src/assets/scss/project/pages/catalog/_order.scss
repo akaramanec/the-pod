@@ -1,0 +1,97 @@
+main.main.order {
+  background: $color__light;
+
+  .order {
+    &__content {
+      h2 {
+        text-align: left;
+        margin-bottom: 55px;
+      }
+
+      .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
+        position: relative;
+
+        label {
+          width: 240px;
+          margin-right: 1rem;
+        }
+
+        input {
+          width: 450px;
+          text-align: center;
+          border: {
+            color: $color__dark;
+            width: 1px;
+            style: solid;
+            radius: 25px;
+          };
+        }
+
+        & > .invalid-feedback {
+          position: absolute;
+          left: 425px;
+          bottom: -20px;
+        }
+
+        @include breakpoint($phone__all) {
+          position: unset;
+          text-align: center;
+        }
+
+        @include breakpoint($phone__all) {
+          flex-direction: column;
+          align-items: center;
+          label {
+            text-align: center;
+            margin-right: 0;
+            margin-bottom: 10px;
+          }
+          input {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 100%;
+            font-size: 16px;
+          }
+        }
+      }
+
+      .base-button.btn--dark.main__button {
+        margin: 0 auto;
+      }
+    }
+
+    &__data {
+      margin-bottom: 60px;
+
+    }
+
+    &__delivery {
+      @import "../../components/radiobuttons";
+
+      p {
+        padding-left: 30px;
+        max-width: 520px;
+        margin-bottom: 2rem;
+      }
+
+      .custom-radio {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+#order-comment {
+  border-radius: 25px;
+  border: 1px solid black;
+}
+
+.sum_total, .total_qty {
+  font-size: 30px;
+  @include breakpoint($phone__all) {
+    font-size: 20px;
+  }
+}

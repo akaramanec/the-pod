@@ -1,0 +1,307 @@
+.success-popup {
+  @extend %popup-bg;
+
+  position: fixed;
+
+  display: block;
+
+  background-color: rgba($color__dark, .5);
+
+  &.show {
+    display: block;
+  }
+
+  &__msg {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem !important;
+     @include breakpoint ($phone__all) {
+         font-size: 13px;
+      }
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1200px;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+
+    background-color: $color__light;
+
+    padding: 60px;
+    @include breakpoint($tablet__all) {
+      width: 90%;
+    }
+    @include breakpoint($phone__all) {
+      padding: 15px;
+      width: 100%;
+      transform: none;
+      min-height: 400px;
+      height: 100%;
+      overflow: auto;
+      top: 0;
+      left: 0;
+      padding-top: 50px;
+    }
+  }
+
+  &__product {
+    &-wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      height: 200px;
+      overflow: auto;
+      @include breakpoint($phone__all) {
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+    }
+  }
+
+  &__item {
+    height: 170px;
+    width: 45%;
+    display: flex;
+    @include breakpoint($phone__all) {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: 100%;
+      border-bottom: 1px solid gray;
+    }
+
+    &-img {
+      width: 100px;
+    }
+
+    &-name {
+       @include breakpoint ($phone__all) {
+           font-size: 16px;
+        }
+    }
+  }
+
+  &__summ {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    p {
+      padding: 0 10px;
+    }
+
+  }
+
+  &__footer {
+    .main-chatbot__buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 0 auto;
+
+      a {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+
+       @include breakpoint ($phone__all) {
+           flex-direction: column;
+         align-items: center;
+        }
+
+    }
+  }
+
+  .cross {
+    right: 30px;
+    top: 30px;
+    @include cross(20px, 18px, 2px, black);
+     @include breakpoint ($phone__all) {
+       right: 15px;
+       top: 15px;
+      }
+  }
+}
+
+.pop-up {
+  @extend %popup;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 1200px;
+  height: 570px;
+  padding-top: 60px;
+  padding-right: 40px;
+  padding-left: 30px;
+
+  background-color: $color__light;
+  @include breakpoint($desktop__laptop) {
+    height: 90%;
+  }
+  @include breakpoint($tablet__all) {
+    width: 80%;
+    height: 500px;
+  }
+  @include breakpoint($portrait__all) {
+    width: 100%;
+    height: 100vh;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  .pop-cross {
+    @include cross(30px, 20px, 2px, $color__dark);
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  h2 {
+    font-weight: normal;
+
+    @include breakpoint($phone__all) {
+      font-size: 30px;
+    }
+  }
+
+  p {
+    font-size: 35px;
+    line-height: 47px;
+
+    max-width: 1000px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    text-align: center;
+
+    @include breakpoint($tablet__all) {
+      font-size: 30px;
+      line-height: 40px;
+    }
+    @include breakpoint($phone__all) {
+      font-size: 20px;
+      line-height: 27px;
+
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .main-chatbot__buttons {
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 60%;
+
+    @include breakpoint($phone__all) {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    a {
+      width: 45%;
+      max-width: 330px;
+      margin: 10px;
+
+      &:before {
+        transition: all .2s;
+
+        filter: invert(1);
+      }
+
+      &:hover:before {
+        filter: invert(0);
+      }
+    }
+  }
+}
+
+.start-popup {
+  display: none;
+
+  &.show {
+    display: block;
+  }
+
+  .pop-up {
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    color: $color__light;
+    background-color: $color__dark;
+
+    p {
+      font-size: 30px;
+      line-height: 40px;
+
+      @include breakpoint($desktop__laptop) {
+        font-size: 20px;
+        line-height: 30px;
+
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      @include breakpoint($phone__all) {
+        font-size: 20px;
+        line-height: 27px;
+      }
+    }
+
+    h2 {
+      @include breakpoint($phone__all) {
+        font-size: 28px;
+        line-height: 37px;
+      }
+    }
+
+    .img-wrap {
+      @include breakpoint($phone__small) {
+        max-width: 100px !important;
+      }
+    }
+
+    .main-chatbot__buttons {
+      align-items: center;
+      flex-direction: column;
+
+      margin-top: 30px;
+
+      @include breakpoint($desktop__laptop) {
+        flex-direction: row;
+      }
+
+      button:first-child {
+        margin-bottom: 15px;
+
+        @include breakpoint($desktop__laptop) {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.alert {
+  position: fixed;
+  z-index: z(modal);
+  top: 100px;
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+
+  width: 232px;
+  padding-right: 28px;
+
+  transform: translate(-50%, -50%);
+  text-align: center;
+}

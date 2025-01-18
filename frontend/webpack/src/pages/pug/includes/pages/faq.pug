@@ -1,0 +1,47 @@
+extends ../layout/base
+include ../templates/item
+block variables
+
+
+block main
+  main.main.faq
+    include ../layout/header
+    .container
+      #faqAccordion.accordion
+        .accordion__item
+          header#heading_1.accordion__header
+            button.accordion__toggle(type='button', data-toggle='collapse', data-target='#collapse_1', aria-expanded='true', aria-controls='collapse_1')
+              | Как осуществляется партнерство
+          #collapse_1.collapse.accordion__body(aria-labelledby='heading_1', data-parent='#faqAccordion')
+            .accordion__content
+              p.accordion__text  Ответ на вопрос
+        .accordion__item
+          header#heading_2.accordion__header
+            button.accordion__toggle(type='button', data-toggle='collapse', data-target='#collapse_2', aria-expanded='true', aria-controls='collapse_2')
+              | Lorem ipsum dolor sit amet
+          #collapse_2.collapse.accordion__body(aria-labelledby='heading_2', data-parent='#faqAccordion')
+            .accordion__content
+              p.accordion__text
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dignissimos dolorum enim, expedita facere maxime minus officia quasi quos veritatis. Alias aliquam expedita facilis id laudantium minus nihil quaerat voluptatibus.
+        .accordion__item
+          header#heading_3.accordion__header
+            button.accordion__toggle(type='button', data-toggle='collapse', data-target='#collapse_3', aria-expanded='true', aria-controls='collapse_3')
+              | 2Delectus dignissimos enim, expe !!!!
+          #collapse_3.collapse.accordion__body(aria-labelledby='heading_3', data-parent='#faqAccordion')
+            .accordion__content
+              p.accordion__text
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dignissimos dolorum enim, expedita facere maxime minus officia quasi quos veritatis. Alias aliquam expedita facilis id laudantium minus nihil quaerat voluptatibus.
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dignissimos dolorum enim, expedita facere maxime minus officia quasi quos veritatis. Alias aliquam expedita facilis id laudantium minus nihil quaerat voluptatibus.
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dignissimos dolorum enim, expedita facere maxime minus officia quasi quos veritatis. Alias aliquam expedita facilis id laudantium minus nihil quaerat voluptatibus.
+        .accordion__item
+          header#heading_4.accordion__header
+            button.accordion__toggle(type='button', data-toggle='collapse', data-target='#collapse_4', aria-expanded='true', aria-controls='collapse_4')
+              | 4Delectus dignissi nissiolor
+          #collapse_4.collapse.accordion__body(aria-labelledby='heading_4', data-parent='#faqAccordion')
+            .accordion__content
+              p.accordion__text
+                | Delectus dignissi
+                | Lorem ipsum doDelectus dignissiolorum enim, expedita facere maxime minus officia quasi quos veritatis. Alias aliquam expedita facilis id laudantium minus nihil quaerat voluptatibus.
+                | Lorem ipsum doDelectus dignissiolorum enim, expedita facere maxime minus officia quasi quos veritatis. Alias aliquam expedita facilis id laudantium minus nihil quaerat voluptatibus.
+
+

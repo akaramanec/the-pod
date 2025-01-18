@@ -1,0 +1,12 @@
+-
+  let list = [
+    {name: 'Каталог', link: 'catalog'},
+    {name: 'О продукции', link: 'production'},
+    {name: 'О нас', link: 'about'},
+    {name: 'FAQ', link: 'faq'}
+  ]
+
+ul.navigation__list
+  each items in list
+    li.navigation__item
+      +Link(items.link,items.name)

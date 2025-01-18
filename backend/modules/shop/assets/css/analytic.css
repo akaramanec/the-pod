@@ -1,0 +1,108 @@
+.analytics {
+    font-size: 15px !important;
+}
+
+.analytics-item-row {
+    margin: 1rem 0;
+}
+
+.analytics .card {
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.analytics .card-header {
+    border: none;
+    background: initial;
+}
+
+.analytics .calendar {
+    position: relative;
+}
+
+.analytics .delete-date {
+    position: absolute;
+    top: 2px;
+    right: 50px;
+    font-size: 18px;
+    padding: 5px 10px;
+    color: #ababab;
+}
+
+.analytics .analytics-item-row.analytics-order-processing table thead tr th,
+.analytics .analytics-item-row.analytics-order-processing table tbody tr td {
+    border: 1px solid #dee2e6;
+    font-size: 15px !important;
+}
+
+.analytics .analytics-item-row.analytics-order-processing table tr .text-center {
+    text-align: center;
+}
+
+.analytics .analytics-item-row.analytics-order-processing table thead tr th.fw-900 {
+    color: #212529;
+    font-weight: 900;
+}
+
+.analytics .analytics-indicators .card .card-header {
+    padding: 0.5rem 0;
+}
+
+.analytics .analytics-indicators .card .card-body {
+    padding: 0.25rem 0.25rem;
+}
+
+.analytics .analytics-indicators .card-title {
+    margin: 10px 0 0 0;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.analytics .card-title .text-title {
+    font-weight: 800;
+}
+
+@media (max-width: 1250.98px) {
+    .analytics .analytics-indicators .card-title{
+        font-size: 14px;
+    }
+}
+
+.analytics .card-title .text-value {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.analytics .card-title .text-link {
+    font-size: 75%;
+    /*font-weight: 900;*/
+}
+
+.analytics .analytics-table .card-header {
+    padding-bottom: 0;
+}
+
+.analytics .analytics-table .card-header .card-title {
+    margin: 0;
+    padding: 0;
+}
+
+.analytics .analytics-table .card-header span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: green;
+    margin: 10px 0 0;
+}
+
+.general-percent-value {
+    color: #8e85f3;
+    position: absolute;
+    right: 5%;
+}
+.general-info-icon {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    opacity: 0.4;
+}
+

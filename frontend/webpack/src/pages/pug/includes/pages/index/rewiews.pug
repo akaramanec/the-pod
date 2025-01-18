@@ -1,0 +1,48 @@
+section.main-reviews
+  .container
+    .reviews__title
+      h2 Отзывы
+    .reviews__content.owl-theme
+      -
+        let rewies = [
+          {
+            img:'reviews/tony.png',
+            name:'тони старк',
+            text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
+          },
+          {
+            img: 'reviews/tony.png',
+            name: 'тони старк',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat ',
+          },
+          {
+            img: 'reviews/tony.png',
+            name: 'тони старк',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor fugiat nulla pariatur. Excepteur sint occaecat ',
+          },
+          {
+            img: 'reviews/tony.png',
+            name: 'тони старк',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          },
+          {
+            img: 'reviews/tony.png',
+            name: 'тони старк',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          },
+          {
+            img: 'reviews/tony.png',
+            name: 'тони старк',
+            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          },
+        ]
+      each rew in rewies
+        .reviews__item
+          .reviews__img
+            +Img(rew.img)
+          .reviews__name
+            h3=rew.name
+          .reviews__text
+            p=rew.text
+
+

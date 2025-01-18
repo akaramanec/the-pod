@@ -1,0 +1,165 @@
+.header {
+  $top-padding: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: $top-padding;
+  width: 100%;
+  background-color: $color__secondary;
+  z-index: z(nav);
+  @include breakpoint($phone__all) {
+    height: 87px;
+  }
+
+  &__wrap {
+    align-items: center;
+
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    @extend %flex-row-between;
+    @include breakpoint($phone__all) {
+      position: unset;
+    }
+  }
+
+  &__logo {
+    max-width: 120px;
+
+    @include breakpoint($tablet__all) {
+      max-width: 100px;
+    }
+    @include breakpoint($phone__all) {
+      max-width: 85px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+
+    &-toggler {
+      display: none;
+      @include size(30px);
+
+
+      @include breakpoint($phone__all) {
+        display: block;
+        cursor: pointer;
+
+        @include burgerLines(3, 3px);
+      }
+
+    }
+
+    .navigation {
+      &__list {
+
+        @extend %flex-row-between;
+        @include breakpoint($desktop__all) {
+          width: 580px;
+        }
+        @include breakpoint($tablet__all) {
+          width: 420px;
+        }
+        //@include breakpoint($width__mobile-max ($width__tablet-port - 1)) {
+        //  right: calc(-100vw - (767px - 540px));
+        //}
+        @include breakpoint($phone__all) {
+          transition: all $animation-fast;
+          position: absolute;
+          top: 87px;
+          right: -100vw;
+          z-index: z(nav);
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+
+          width: 100vw;
+          height: 100vh;
+
+          background-color: $color__secondary;
+          &.show {
+            right: 0;
+          }
+        }
+      }
+
+      &__item {
+        position: relative;
+
+        @extend %flex-row-align;
+
+        @include breakpoint($width__tablet-port) {
+          &:not(:last-child) {
+            &:after {
+              @include pseudoElement(1px, null, relative);
+              right: -60px;
+
+              height: 100%;
+
+              background-color: $color__light;
+
+
+              @include breakpoint($tablet__all) {
+                right: -35px;
+              }
+            }
+          }
+        }
+
+        @include breakpoint($phone__all) {
+          border-top: solid $color__light 1px;
+          padding-left: 15px;
+          padding-top: 25px;
+          padding-bottom: 25px;
+          &:last-child {
+            border-bottom: solid $color__light 1px;
+          }
+
+        }
+      }
+    }
+  }
+
+  &__basket {
+    position: relative;
+
+    margin-left: 50px;
+
+    cursor: pointer;
+
+    @extend %flex-center;
+    @include breakpoint($phone__all) {
+      margin-left: 0;
+    }
+
+    .img-wrap {
+      max-width: 35px;
+    }
+
+    &--number {
+      position: absolute;
+      top: 0;
+      right: -10px;
+
+      display: flex;
+
+      border-radius: 50%;
+      background-color: $color__light;
+
+      @include size(18px);
+      @extend %flex-center;
+
+      &:after {
+        font: {
+          size: 13px;
+          weight: bold;
+        };
+
+        content: attr(data-basket);
+
+        color: $color__dark;
+      }
+    }
+  }
+}

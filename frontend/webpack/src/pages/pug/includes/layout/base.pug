@@ -1,0 +1,50 @@
+include ../../utils/mixins
+
+-
+  imgPath = '/assets/img/'
+  basePath = '/'
+  contacts = {
+    messengers: {
+      telegram: {
+        text: 'Чат-бот Telegram',
+        link: 'telegram',
+      },
+      viber: {
+        text: 'Чат-бот Viber',
+        link: 'viber',
+      },
+    },
+    phones: {
+      stat: {
+        number: '+38 (044) 445 54 32',
+        text: 'стационарный'
+      },
+      kyivstar: {
+        number: '+38 (098) 445 54 32',
+        text: 'kyivstar'
+      },
+      life: {
+        number: '+38 (066) 445 54 32',
+        text: 'life'
+      }
+    },
+    address: {
+      data: 'ул. Хрещатик, 38, Киев, 01001',
+      text: 'адресс',
+    }
+  }
+
+
+block variables
+
+doctype html
+html(lang='ru')
+  head
+    include ../templates/baseHead
+    title=title
+    block head
+  body
+
+    block main
+    include ../layout/footer
+

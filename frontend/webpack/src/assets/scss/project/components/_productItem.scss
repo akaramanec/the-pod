@@ -1,0 +1,168 @@
+.products {
+  .main {
+     @include breakpoint ($desktop__all) {
+       &__wrap {
+         align-items: flex-start;
+       }
+
+       &__title {
+         .img-wrap {
+           margin: 35px auto 35px 0;
+         }
+         p {
+           margin: 25px auto 25px 0;
+           text-align: left;
+         }
+       }
+
+       &__button {
+         margin: 90px auto 90px 0 !important;
+       }
+      }
+
+  }
+
+
+  &__wrap {
+    background: url("#{$imgPath}/product/bg1.png") $color__primary;
+    background-size: cover;
+
+    & > .product__button {
+      margin: auto auto 3rem !important;
+      margin-top: auto;
+      margin-bottom: 3rem;
+
+      max-width: 450px;
+      @include breakpoint($tablet__all) {
+        margin-bottom: 1rem;
+      }
+      @include breakpoint($phone__all) {
+        margin: 3rem auto 0;
+      }
+    }
+  }
+
+  &__item {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: {
+      size: cover;
+      position: center center;
+      repeat: no-repeat;
+    };
+  }
+
+  &__content {
+    @extend %flex-row-mob-column;
+    color: $color__light;
+    @include breakpoint($tablet__all) {
+      justify-content: flex-end;
+    }
+    @include breakpoint($phone__all) {
+      padding-top: 100px;
+      position: relative;
+    }
+  }
+
+  &__img {
+    box-shadow: -20px 20px 40px 0px rgba(0,0,0,0.75);
+    flex-basis: 700px;
+    max-height: 700px;
+    border-radius: 25px;
+    overflow: hidden;
+    .img-wrap {
+      height: 100%;
+      img {
+        height: inherit;
+      }
+    }
+    @include breakpoint($desktop__laptop) {
+      flex-basis: 500px;
+      max-height: 500px;
+    }
+    @include breakpoint($tablet__all) {
+      flex-basis: 50px;
+      position: relative;
+      .img-wrap {
+        position: absolute;
+
+        right: 50px;
+        width: 450px;
+      }
+    }
+    @include breakpoint($phone__all) {
+      flex-basis: auto;
+    }
+  }
+
+  &__description {
+    flex-basis: 450px;
+
+    padding-top: 3rem;
+    @extend %flex-column-start;
+
+    h2 {
+      text-align: left;
+      margin-bottom: 40px;
+      @include breakpoint($phone__all) {
+        margin-bottom: 0;
+        position: absolute;
+        top: 0;
+        text-align: center;
+      }
+    }
+
+    @include breakpoint($desktop__all) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include breakpoint($tablet__all) {
+      flex-basis: 330px;
+      min-height: 480px;
+    }
+    @include breakpoint($phone__all) {
+      text-align: center;
+      flex-basis: unset;
+    }
+    @include ie11() {
+      h2, p {
+        width: 100%;
+      }
+    }
+  }
+
+  .product__button {
+    margin-top: auto;
+    margin-bottom: 3rem;
+
+    max-width: 450px;
+    @include breakpoint($tablet__all) {
+      margin-bottom: 1rem;
+    }
+    @include breakpoint($phone__all) {
+      margin: 3rem auto 0;
+    }
+  }
+
+
+  .img-wrap {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+}
+.products__item {
+  .product__button {
+    margin-top: auto;
+    margin-bottom: 3rem;
+
+    max-width: 450px;
+    @include breakpoint($tablet__all) {
+      margin-bottom: 1rem;
+    }
+    @include breakpoint($phone__all) {
+      margin: 3rem auto 0;
+    }
+  }
+
+}

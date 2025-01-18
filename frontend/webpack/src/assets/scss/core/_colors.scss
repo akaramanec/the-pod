@@ -1,0 +1,23 @@
+$color__primary         : #151515;
+$color__secondary       : #0D0D0D;
+
+$color__light           : #fff;
+$color__dark            : #000000;
+
+//Indicate
+$color__error           : #d23333;
+$color__success         : #32E0C4;
+//Font-color
+$color__font--primary    : $color__dark;
+$color__font--secondary  : $color__light;
+$color__font--hover--primary        : rgba($color__dark ,.5);
+$color__font--hover--secondary      : red;
+
+//Block-color
+$color__block--primary    : $color__primary;
+$color__block--secondary  : $color__secondary ;
+$color__block--light      : #f5f5f5 ;
+
+//Border
+$color__border--primary    : #707070;
+$color__border--secondary  : $color__light  ;

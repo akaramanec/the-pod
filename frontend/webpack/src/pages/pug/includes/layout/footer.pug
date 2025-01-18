@@ -1,0 +1,28 @@
+footer.footer
+  .container
+    .footer__info
+      a.footer__logo(href=basePath)
+        +Img('icons/logo.svg')
+      nav.footer__nav
+        ul.navigation__list
+          each items in list
+            li.navigation__item
+              +Link(items.link,items.name)
+      .footer__links
+        each messengers in contacts.messengers
+          +Link(messengers.link,messengers.text)
+      .footer__phones
+        each phones in contacts.phones
+          .footer__phones--item
+            span=phones.text
+            +Link(phones.number,phones.number,'',true,'phone')
+        .footer__phones--adress
+          span=contacts.address.text
+          +Link('contacts',contacts.address.data,'',false,'phone')
+  .footer__pocitics
+    .container
+      +Link('rules','Правила возврата и обмена')
+      +Link('confidence','Правила возврата и обмена')
+      +LinkImg('icons/boto-footer.svg','/')
+
+

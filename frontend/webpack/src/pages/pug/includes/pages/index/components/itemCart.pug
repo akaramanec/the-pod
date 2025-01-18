@@ -1,0 +1,12 @@
+- let cart = {img: 'catalog/img1.png',img2: 'catalog/img2.png',title: 'Vaporlax Disposable Device Banana Ice Flavor 50mg',price: '299 грн',btn1: 'Купить сейчас',btn2: 'В корзину',}
+
+  .item-card
+    aside.item-card__img
+      +LinkImg(cart.img,basePath,'item-card__img--base')
+      +LinkImg(cart.img2,basePath,'item-card__img--hover')
+    .item-card__body
+      +Link(basePath,cart.title,'item-card__link')
+      span.item-card__price=cart.price
+    footer.item-card__buttons
+      +Button(cart.btn1,'item-card__btn btn--dark')
+      +Button(cart.btn2,'item-card__btn btn--dark')

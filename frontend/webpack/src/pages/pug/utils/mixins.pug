@@ -1,0 +1,118 @@
+-
+  function checkEmptyProp(prop) {
+    prop = prop === undefined ? '' : prop
+    return prop;
+  }
+mixin Img(path,type,alt)
+  -
+    alt = alt !== undefined ? alt : path.split('/')[path.split('/').length - 1].split('.')[0]
+    let fileName = path.split('.')[0]
+    let ext = ['jxr', 'jp2', 'webp']
+  div.img-wrap
+    case type
+      when 'lazy'
+        img(data-src=imgPath + path, class="lazy", alt=alt)
+      when 'pic'
+        picture
+          each pictures,index in ext
+            source(
+              src=imgPath + fileName + '.' + pictures,
+              type=index === 0 ? 'image/vnd.ms-photo': 'image/' + pictures)
+          img(src=imgPath + path, alt=alt)
+      when 'pic-lazy'
+        picture(class='lazy')
+          each pictures,index in ext
+            source(
+              data-srcset=imgPath + fileName + '.' + pictures,
+              type=index === 0 ? 'image/vnd.ms-photo': 'image/' + pictures)
+          img(data-srcset=imgPath + path, alt=alt)
+      when 'locale'
+        img(src=imgPath + localeData[locale].img[path], alt=alt)
+      when 'locale-js'
+        img(data-locale=alt,  alt=alt)
+      default
+        img(src=imgPath + path, alt=alt)
+
+mixin formItem(type,iD)
+  -
+    let id = `${iD}__${type}`
+    inputData = {
+      name: {
+        pattern: '^[a-zA-Z0-9-_\.]{3,20}$',
+        placeholder: 'name placeholder',
+        errorMsg: 'name error',
+      },
+      password: {
+        pattern: '[a-zA-Z0-9]{5,16}$',
+        placeholder: 'password placeholder',
+        errorMsg: 'password error',
+      },
+      tel: {
+        pattern: '',
+        placeholder: 'tel placeholder',
+        errorMsg: 'tel error',
+      },
+      mail: {
+        pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$',
+        placeholder: 'mail placeholder',
+        errorMsg: 'mail error',
+      },
+      textarea: {
+        pattern: '',
+        placeholder: 'textarea placeholder'
+      },
+    }
+  if type !== 'textarea'
+    label(for=id)
+      input(
+        id=id,
+        form=iD,
+        type=type,
+        pattern=inputData[type].pattern,
+        placeholder=inputData[type].placeholder,
+        autocomplte="off"
+        required)
+      span.error=inputData[type].errorMsg
+  else
+    label(for=id)
+      textarea(
+        id=id,
+        form=iD,
+        type=type,
+        placeholder=inputData[type].placeholder,)
+
+mixin FormGroup(id,items)
+  form(id=id, action='')
+    each item in items
+      +formItem(item,id)
+    button(type="submit") send
+
+mixin Link(url,text,linkClass,blank,type)
+  - linkClass = checkEmptyProp(linkClass)
+  case type
+    when 'mail'
+      a(href='mailto:' + url, class='link ' + linkClass)
+        span=text
+    when 'phone'
+      a(href='tel:' + url, class='link' + linkClass)
+        span=text
+    default
+      a(
+        href=url,
+        class='link ' + linkClass,
+        target=blank !== undefined ? '_blank' : '')
+        span=text
+
+mixin LinkImg(path,url,linkClass)
+    a(href=url, class=linkClass)
+        +Img(path,type)
+mixin Button(text,btnClass,type)
+  button.base-button(class=btnClass, type=type === undefined ? 'button' : type)=text
+
+mixin ButtonLink(url,text,linkClass,blank)
+  a(
+    href=url,
+    class='base-button ' + linkClass,
+    target=blank !== undefined ? '_blank' : '')
+    span=text
+

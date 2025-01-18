@@ -1,0 +1,43 @@
+extends ../layout/base
+include ../templates/item
+block variables
+  -
+    let productsData = [
+      {
+        img: basePath + 'product/im1.png',
+        bg: basePath + 'product/bg1.png',
+        title: `почему именно vaporlax`,
+        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
+      },]
+
+block main
+  main.main
+    include ../layout/header
+    .container
+      .main__wrap
+        h1.main__title
+          +Img('icons/vaporlaxlogo.png')
+          span 600
+          | затяжек прямо у тебя в кармане
+          p Просто взял и наслаждаешься простотой и удобством использования
+        +ButtonLink('catalog','перейти в каталог','btn--light main__button')
+
+  section.products__wrap
+    +productItem(productsData,0,true)
+
+  .start-popup.show
+    .pop-up
+      +Img('icons/logo.svg')
+
+      p Для использования веб-сайта ThePod вам должно быть не менее 18 лет. Пожалуйста, подтвердите свой возраст перед входом на сайт.
+      h2 Вам исполнилось 18 лет?
+      .main-chatbot__buttons
+        button.base-button.btn--light.yes да
+        button.base-button.btn--light.no нет
+
+  include index/mainCatalog
+
+  include index/chat-bot
+
+  include index/rewiews
+

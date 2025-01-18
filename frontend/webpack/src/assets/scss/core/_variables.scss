@@ -1,0 +1,87 @@
+@import "~breakpoint-sass";
+
+
+//Breakpoints
+$width__desktop-hd            : 1920px;
+
+$width__desktop-hd-min        : 1600px;
+//XL
+$width__desktop-min           : 1200px;
+// LG
+$width__tablet-land           : 992px;
+//MD
+$width__tablet-port           : 768px;
+//SM
+$width__mobile-max            : 576px;
+//XS
+$width__mobile-min            : 320px;
+//Min
+$width__min                   : 100px;
+
+
+                             //min 1200
+$mobile__all                  : $width__min            ($width__desktop-min - 1);         // min 100 - 1200
+$portrait__all                : $width__min            ($width__tablet-land - 1);         // min 100 - 992
+
+$desktop__all                 : $width__desktop-min;
+$desktop__laptop              : $width__desktop-min    $width__desktop-hd-min;
+$desktop__laptop-min          : ($width__desktop-min   $width__desktop-hd-min) (max-height ($width__tablet-port - 1));
+
+$tablet__all                  : $width__tablet-port    ($width__desktop-min - 1);        // min 768 - 1200
+$tablet__landscape            : $width__tablet-land    ($width__desktop-min - 1) ;       // min 992 - 1200px
+$tablet__portrait             : $width__tablet-port    ($width__tablet-land - 1);        // min 768 - 992
+
+$phone__all                   : $width__min            ($width__tablet-port - 1);        // min 100 - 768
+$phone__landscape             : $portrait__all         (max-height 450px);
+$phone__small                 : $width__min            $width__mobile-min;               // min 100 - 320
+
+//adv
+
+
+
+$imgPath: '/assets/img/';
+$iconsPath: $imgPath +'icons/';
+
+section,
+.section {
+  position: relative;
+
+  overflow: hidden;
+  @include breakpoint($width__desktop-min) {
+    padding-top:145px;
+    padding-bottom: 200px;
+  }
+  @include breakpoint($width__tablet-port) {
+    padding-top: 145px;
+    padding-bottom: 125px;
+  }
+  @include breakpoint($width__mobile-min ) {
+    padding-top: 45px;
+    padding-bottom: 90px;
+  }
+}
+
+
+.container {
+  position: relative;
+
+  flex: 0 0 auto;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+  @include breakpoint($width__desktop-hd-min) {
+    max-width: 1440px;
+  }
+  @include breakpoint($width__desktop-min) {
+    max-width: 1140px;
+  }
+  @include breakpoint($width__tablet-land) {
+    max-width: 960px;
+  }
+  @include breakpoint($width__tablet-port) {
+    max-width: 720px;
+  }
+  @include breakpoint($width__mobile-max) {
+    max-width: 540px;
+  }
+}

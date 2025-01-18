@@ -1,0 +1,8 @@
+section.main-catalog
+  .container
+    .catalog__content
+      h2 Популярные товары
+      .catalog__wrap
+        - for(let i = 0; i < 10; i++)
+          include components/itemCart
+      +ButtonLink('catalog','перейти в каталог','btn--dark catalog__button')
