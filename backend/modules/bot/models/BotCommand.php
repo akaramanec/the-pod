@@ -65,11 +65,12 @@ class BotCommand extends \yii\db\ActiveRecord
 
     public static function textTm($name, $data = [])
     {
-        $c = self::find()->where(['name' => $name])->asArray()->limit(1)->one();
-        if ($c['description']) {
-            return strtr($c['description'], $data);
+        if ($c = self::find()->where(['name' => $name])->asArray()->limit(1)->one()) {
+            if ($c['description']) {
+                return strtr($c['description'], $data);
+            }
         }
-        return 'Отсутствует описание команды';
+        return $name;
     }
 
     public static function textVb($command, $data = [])

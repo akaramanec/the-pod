@@ -73,7 +73,7 @@ class AdditionalDiscount
     public function isActive(): bool
     {
         $isDiscountProduct = false;
-        if (mb_stripos($this->productName, $this->brandDiscount) !== false
+        if (($this->productName && $this->brandDiscount) && mb_stripos($this->productName, $this->brandDiscount) !== false
             && (!empty($this->brandPuff) && mb_stripos($this->productName, $this->brandPuff) !== false)
         ) {
             $isDiscountProduct = true;

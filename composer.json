@@ -37,7 +37,11 @@
         "serj1chen/nova-poshta-sdk-php": "2.0.*",
         "cloudipsp/php-sdk-v2": "^1.0",
       "ext-json": "*",
-        "kartik-v/yii2-widget-timepicker": "dev-master"
+        "kartik-v/yii2-widget-timepicker": "dev-master",
+        "nterms/yii2-pagesize-widget": "^2.0",
+        "2amigos/yii2-tinymce-widget": "^1.1",
+        "execut/yii2-widget-bootstraptreeview": "^1.4",
+        "kartik-v/yii2-grid": "^3.5"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

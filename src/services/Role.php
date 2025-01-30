@@ -59,6 +59,8 @@ class Role
             'logger' => [AuthItem::DEV],
             'home' => [AuthItem::DEV],
             'notification' => [AuthItem::DEV, AuthItem::ADMIN],
+            'shop' => [AuthItem::DEV, AuthItem::ADMIN],
+            'category' => [AuthItem::DEV, AuthItem::ADMIN],
         ];
         return $data[$action];
     }

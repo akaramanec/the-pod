@@ -23,15 +23,11 @@ class HomeController extends \yii\web\Controller
 
     public function actionDemo()
     {
-
         if (($id = \Yii::$app->request->get('id')) !== NULL) {
-            $demo = new Demo($id);
+            new Demo($id);
         } else {
-            $demo = new Demo(780);
+            DieAndDumpHelper::dd('id is not set');
         }
-        return $this->render('demo', [
-            'demo' => $demo
-        ]);
     }
 
     public function actionElement()

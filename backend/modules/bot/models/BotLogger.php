@@ -48,6 +48,4 @@ class BotLogger extends \yii\db\ActiveRecord
         $logger->slug = $slug;
         $logger->insert();
     }
-
-
 }

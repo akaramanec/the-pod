@@ -171,7 +171,8 @@ var left_side_attribute = [
     'seo_left_side',
     'setting_left_side',
     'logger_left_side',
-    'poll_left_side'
+    'poll_left_side',
+    'shop_left_side',
 ];
 
 $.each(left_side_attribute, function (index, element) {

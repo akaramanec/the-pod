@@ -111,7 +111,6 @@ class TCommon extends TBaseCommon
             ],
             [
                 ["text" => $this->menu->faq],
-                ["text" => $this->menu->freeTesting],
             ],
             [
                 ["text" => $this->menu->dialOperator],

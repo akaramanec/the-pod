@@ -13,12 +13,17 @@ $head = new \src\helpers\Head();
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav mr-auto"></ul>
         <ul class="navbar-nav">
+<!--            <li class="nav-item">-->
+<!--                <div class="nav-icon">-->
+<!--                    <a href="--><?php //= Yii::$app->params['homeUrl']; ?><!--" target="_blank" title="Перейти на сайт">-->
+<!--                        <i class="fas fa-chalkboard-teacher"></i>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </li>-->
             <li class="nav-item">
-                <div class="nav-icon">
-                    <a href="<?= Yii::$app->params['homeUrl']; ?>" target="_blank" title="Перейти на сайт">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </a>
-                </div>
+                <a class="nav-link" href="<?= Yii::$app->params['chatTm']; ?>" target="_blank" title="Telegram">
+                    <i class="fa fa-telegram"></i>Telegram
+                </a>
             </li>
             <li class="nav-item dropdown <?= $head->activeNew($head->orderCountCheck) ?>">
                 <a class="nav-link dropdown-toggle" href="#" id="checkMove" role="button"

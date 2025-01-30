@@ -4,12 +4,15 @@ namespace backend\modules\media\models;
 
 use backend\modules\admin\models\AuthAdmin;
 use backend\modules\customer\models\Newsletter;
+use backend\modules\shop\models\Category;
 use backend\modules\shop\models\Faq;
 use backend\modules\shop\models\Notice;
 use backend\modules\shop\models\NoticeNp;
+use backend\modules\shop\models\Product;
 use backend\modules\system\models\ReviewSlider;
 use backend\modules\system\models\SitePage;
 use backend\modules\system\models\Staff;
+use src\helpers\DieAndDumpHelper;
 use Yii;
 use yii\base\BaseObject;
 
@@ -65,6 +68,7 @@ class ImgInit extends BaseObject
             default:
                 throw new \Exception('no entity');
         }
+
         $this->relativePathCache = '/cache/' . $dir . '/';
         $this->relativePath = '/' . $dir . '/';
         $this->relativePathUrl = Yii::$app->params['imgUrl'] . $this->relativePath;

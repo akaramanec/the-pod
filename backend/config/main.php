@@ -8,7 +8,9 @@ $params = array_merge(
 return [
     'id' => 'bot',
     'basePath' => dirname(__DIR__),
-    'timeZone' => 'Europe/Kyiv',
+    'language' => 'uk',
+    'timezone' => 'Europe/Kyiv',
+    'sourceLanguage' => 'uk-UA',
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'customer/statistic/index',
     'bootstrap' => ['log'],
@@ -32,8 +34,11 @@ return [
             'translations' => [
                 'app*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@app/lang',
-                    'sourceLanguage' => 'en',
+                    'basePath' => '@backend/lang',
+                    'fileMap' => [
+                        'app' => 'app.php',
+                        'app/error' => 'error.php',
+                    ],
                 ]
             ],
         ],
@@ -116,6 +121,9 @@ return [
         'notification' => [
             'class' => 'backend\modules\notification\Module',
         ],
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+        ]
     ],
     'as access' => [
         'class' => 'yii\filters\AccessControl',

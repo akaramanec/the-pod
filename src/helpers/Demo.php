@@ -27,7 +27,7 @@ class Demo
     public function __construct($id)
     {
 //        $this->blogCache();
-//        $this->tm($id);
+        $this->tm($id);
 //        $this->vb();
 //        $this->registration();
 //        $this->moveReferral();
@@ -38,9 +38,6 @@ class Demo
 
     public function tm($id = null)
     {
-        if (is_null($id)) {
-            $id = 780;
-        }
         $log = Logger::findOne($id);
         Yii::$app->tm->input = json_decode(json_encode($log->data));
         Yii::$app->tm->run();

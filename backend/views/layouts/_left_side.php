@@ -32,6 +32,23 @@ use src\services\Role;
         <i class="fab far fa-circle"></i> Заказы
     </a>
 <?php endif; ?>
+<?php if (Role::check('shop')): ?>
+    <h5 data-toggle="collapse"
+        data-target="#shop_left_side"
+        aria-expanded="false"
+        onclick="openClose('shop_left_side')"
+        aria-controls="shop_left_side"
+        class="collapse-filter-head <?= Common::activeSideParent(['category']) ?>"
+        id="heading_shop_left_side">
+        <i class="fa fa-shopping-bag"></i> <?= Yii::t('app', 'Shop') ?> <span class="open-close"><i
+                    class="fas fa-angle-right"></i></span>
+    </h5>
+    <div class="collapse" id="shop_left_side">
+        <a href="/shop/category" class="<?= Common::activeSide('category') ?>">
+            <i class="fab far fa-circle"></i> <?= Yii::t('app', 'Categories') ?>
+        </a>
+    </div>
+<?php endif; ?>
 <?php if (Role::check('order-poll&poll')): ?>
     <h5 data-toggle="collapse"
         data-target="#poll_left_side"
