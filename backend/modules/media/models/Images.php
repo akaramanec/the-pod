@@ -6,6 +6,14 @@ use Yii;
 
 class Images extends \yii\db\ActiveRecord
 {
+    /**
+     * @property int $id
+     * @property int $entity_id
+     * @property int $entity
+     * @property string $img
+     *
+     * @return string
+     */
 
     public static function tableName()
     {

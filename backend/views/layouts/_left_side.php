@@ -38,7 +38,7 @@ use src\services\Role;
         aria-expanded="false"
         onclick="openClose('shop_left_side')"
         aria-controls="shop_left_side"
-        class="collapse-filter-head <?= Common::activeSideParent(['category']) ?>"
+        class="collapse-filter-head <?= Common::activeSideParent(['category', 'product']) ?>"
         id="heading_shop_left_side">
         <i class="fa fa-shopping-bag"></i> <?= Yii::t('app', 'Shop') ?> <span class="open-close"><i
                     class="fas fa-angle-right"></i></span>
@@ -46,6 +46,9 @@ use src\services\Role;
     <div class="collapse" id="shop_left_side">
         <a href="/shop/category" class="<?= Common::activeSide('category') ?>">
             <i class="fab far fa-circle"></i> <?= Yii::t('app', 'Categories') ?>
+        </a>
+        <a href="/shop/product" class="<?= Common::activeSide('product') ?>">
+            <i class="fab far fa-circle"></i> <?= Yii::t('app', 'Products') ?>
         </a>
     </div>
 <?php endif; ?>

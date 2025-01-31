@@ -2,6 +2,7 @@
 
 namespace backend\modules\media\models;
 
+use src\helpers\DieAndDumpHelper;
 use Yii;
 use src\helpers\appUrl;
 use Imagine\Image\ManipulatorInterface;

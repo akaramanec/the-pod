@@ -10,6 +10,7 @@ use backend\modules\shop\models\AttributeValueProductModLink;
 use backend\modules\shop\models\CustomerFilter;
 use backend\modules\shop\models\ProductMod;
 use backend\modules\shop\models\search\ProductModSearch;
+use src\helpers\DieAndDumpHelper;
 use Yii;
 use yii\helpers\ArrayHelper;
 

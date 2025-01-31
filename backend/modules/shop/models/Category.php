@@ -4,11 +4,10 @@ namespace backend\modules\shop\models;
 
 use backend\modules\media\models\ImgSave;
 use Faker\Provider\Uuid;
-use src\helpers\DieAndDumpHelper;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
-use yii\helpers\StringHelper;
+use yii\helpers\ArrayHelper;
 
 /**
  * @property int $id
@@ -141,5 +140,10 @@ class Category extends \yii\db\ActiveRecord
         ];
 
         return $statusClasses[$this->status];
+    }
+
+    public static function asMap()
+    {
+        return ArrayHelper::map(static::find()->asArray()->all(), 'id', 'name');
     }
 }

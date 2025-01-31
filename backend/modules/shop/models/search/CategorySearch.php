@@ -42,7 +42,7 @@ class CategorySearch extends Category
             'query' => $query,
             'sort' => ['defaultOrder' => ['sort' => SORT_ASC]],
             'pagination' => [
-                'defaultPageSize' => '10',
+                'defaultPageSize' => '30',
             ],
         ]);
 

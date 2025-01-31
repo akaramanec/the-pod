@@ -94,6 +94,8 @@ JS;
         if ($this->mode == 'multiple') {
             $multiple = <<< JS
 function readMultiple() {
+    let currentFiles = Array.from(this.files);
+    allFiles = allFiles.concat(currentFiles);
     if (this.files) {
         $.each(this.files, function () {
             var FR = new FileReader();
@@ -103,7 +105,12 @@ function readMultiple() {
             FR.readAsDataURL(this);
         });
     }
+    let uniqueFiles = Array.from(new Map(allFiles.map(file => [file.name, file])).values());
+    let dataTransfer = new DataTransfer();
+    uniqueFiles.forEach(file => dataTransfer.items.add(file));
+    this.files = dataTransfer.files;
 }
+let allFiles = [];
 document.getElementById("inputMultiple").addEventListener("change", readMultiple);
 JS;
         }

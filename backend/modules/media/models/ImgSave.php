@@ -47,7 +47,7 @@ class ImgSave extends Behavior
         $this->owner->mainImg = null;
         $this->owner->multiImg = UploadedFile::getInstances($this->owner, 'multiImg');
         if (isset($this->owner->multiImg)) {
-            $this->owner->multiImg();
+            $this->multiImg();
         }
     }
 

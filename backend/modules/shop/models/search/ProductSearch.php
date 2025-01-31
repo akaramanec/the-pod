@@ -8,7 +8,6 @@ use yii\data\ActiveDataProvider;
 
 class ProductSearch extends Product
 {
-    public $name, $status;
 
     /**
      * @return array
@@ -17,7 +16,7 @@ class ProductSearch extends Product
     {
         return [
             [['name'], 'string'],
-            [['status', 'product_category'], 'integer']
+            [['status', 'category_id'], 'integer']
         ];
     }
 
@@ -41,9 +40,9 @@ class ProductSearch extends Product
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['sort' => SORT_ASC]],
+            'sort' => ['defaultOrder' => ['name' => SORT_ASC]],
             'pagination' => [
-                'defaultPageSize' => '10',
+                'defaultPageSize' => '30',
             ],
         ]);
 
@@ -54,11 +53,12 @@ class ProductSearch extends Product
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'name' => $this->name,
             'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
+
+        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

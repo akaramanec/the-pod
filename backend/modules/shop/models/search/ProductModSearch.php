@@ -102,7 +102,6 @@ class ProductModSearch extends ProductMod
             'product.category_id' => $this->category_id,
             'product.discount_id' => $this->discount_id,
             'mod.status' => $this->status,
-            'mod.status' => $this->status,
         ]);
 
         $this->from_to('price_from', 'price_to', 'mod.price');

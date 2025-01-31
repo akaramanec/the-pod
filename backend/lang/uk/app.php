@@ -183,6 +183,8 @@ return [
     'Active' => 'Активно(ий)',
     'Inactive' => 'Неактивно(ий)',
 
+    'The requested page does not exist.' => 'Запитувана сторінка не існує.',
+
     'Category' => 'Категорія',
     'Categories' => 'Категорії',
     'Category list' => 'Список категорій',
@@ -194,4 +196,17 @@ return [
     'Category success deleted' => 'Категорію успішно видалено',
     'Create category' => 'Створити категорію',
     'Category success created' => 'Категорія успішно створена',
+    'Select category' => 'Виберіть категорію',
+
+    'Product' => 'Продукт',
+    'Products' => 'Продукти',
+    'Products list' => 'Список продуктів',
+    'Add product' => 'Додати продукт',
+    'Edit product' => 'Редагувати продукт',
+    'Product success edited' => 'Продукт успішно відредаговано',
+    'Save product' => 'Зберегти продукт',
+    'Delete product' => 'Видалити продукт',
+    'Product success deleted' => 'Продукт успішно видалено',
+    'Create product' => 'Створити продукт',
+    'Product success created' => 'Продукт успішно створено',
 ];

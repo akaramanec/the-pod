@@ -6,6 +6,7 @@ use backend\modules\customer\models\Customer;
 use backend\modules\media\models\Images;
 use src\behavior\CapitalLetters;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * @property int $id
@@ -98,5 +99,10 @@ class AttributeValue extends \yii\db\ActiveRecord
     public static function byName($name)
     {
         return self::find()->where(['name' => $name])->limit(1)->one();
+    }
+
+    public static function asMapByAttribute(Attribute $attribute)
+    {
+        return ArrayHelper::map(self::find()->where(['attribute_id' => $attribute->id])->orderBy('sort')->all(), 'id', 'name');
     }
 }

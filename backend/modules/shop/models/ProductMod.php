@@ -3,8 +3,12 @@
 namespace backend\modules\shop\models;
 
 use backend\modules\media\models\Img;
+use Faker\Provider\Uuid;
 use frontend\models\cart\Cart;
+use src\helpers\DieAndDumpHelper;
 use Yii;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Inflector;
 
 /**
  * @property int $id
@@ -19,6 +23,7 @@ use Yii;
  * @property-read AttributeValueProductModLink $attributeValueProductModLink
  * @property-read AttributeValue $attributeBrand
  * @property-read AttributeValue $attributeValue
+ * @property-read AttributeValue[] $attributeValues
  * @property-read Product $product
  * @property int $sort
  */
@@ -26,6 +31,8 @@ class ProductMod extends \yii\db\ActiveRecord
 {
     const STATUS_INACTIVE = 1;
     const STATUS_ACTIVE = 3;
+
+    public $attributeValues = [];
 
     public static function tableName()
     {
@@ -35,7 +42,7 @@ class ProductMod extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'uuid', 'name', 'slug', 'status'], 'required'],
+            [['product_id', 'uuid', 'name', 'status'], 'required'],
             [['product_id', 'status', 'sort'], 'integer'],
             [['description'], 'string'],
             [['price'], 'number'],
@@ -45,6 +52,7 @@ class ProductMod extends \yii\db\ActiveRecord
             [['slug'], 'unique'],
             [['code'], 'unique'],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::class, 'targetAttribute' => ['product_id' => 'id']],
+            ['attributeValues', 'safe'],
         ];
     }
 
@@ -64,14 +72,49 @@ class ProductMod extends \yii\db\ActiveRecord
         ];
     }
 
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->uuidAndSlugGenerate();
+            return true;
+        }
+        return false;
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        parent::afterSave($insert, $changedAttributes);
+        $this->saveAttributeValues();
+    }
+
+    protected function saveAttributeValues()
+    {
+        if (!empty($this->attributeValues)) {
+            AttributeValueProductModLink::deleteAll(['mod_id' => $this->id]);
+            foreach ($this->attributeValues as $attributeValueId) {
+                $link = new AttributeValueProductModLink();
+                $link->mod_id = $this->id;
+                $link->attribute_value_id = $attributeValueId;
+                $link->save();
+            }
+        }
+    }
+
     public function getAttributeValueProductModLink()
     {
         return $this->hasMany(AttributeValueProductModLink::class, ['mod_id' => 'id']);
     }
 
-    public function getAttributeValue()
+    public function getAttributeValues()
     {
         return $this->hasMany(AttributeValue::class, ['id' => 'attribute_value_id'])->viaTable('shop_attribute_value_product_mod_link', ['mod_id' => 'id']);
+    }
+
+    public function getAttributeValue($attribute_id)
+    {
+        return $this->hasOne(AttributeValue::class, ['id' => 'attribute_value_id'])
+            ->viaTable('shop_attribute_value_product_mod_link', ['mod_id' => 'id'])
+            ->andWhere(['attribute_id' => $attribute_id]);
     }
 
     public function getAttributeBrand()
@@ -221,5 +264,55 @@ class ProductMod extends \yii\db\ActiveRecord
         $query->andWhere(['mod.status' => ProductMod::STATUS_ACTIVE])
             ->groupBy('p.id');
         return $query;
+    }
+
+    public static function statuses()
+    {
+        return [
+            self::STATUS_ACTIVE => Yii::t('app', 'Active'),
+            self::STATUS_INACTIVE => Yii::t('app', 'Inactive'),
+        ];
+    }
+
+    public function statusName()
+    {
+        return static::statuses()[$this->status] ?? '';
+    }
+
+    public function statusClass()
+    {
+        $statusClasses = [
+            self::STATUS_ACTIVE => 'success',
+            self::STATUS_INACTIVE => 'danger',
+        ];
+
+        return $statusClasses[$this->status];
+    }
+
+    public function slugGenerate()
+    {
+        if ($this->isAttributeChanged('name')) {
+            $index = 0;
+            $this->slug = Inflector::slug($this->name);
+            do {
+                $slug = $index ? $this->slug . '-' . $index++ : $this->slug;
+            } while (ProductMod::find()->where(['slug' => $slug])->exists());
+            $this->slug = $slug;
+        }
+    }
+
+    public function uuidGenerate()
+    {
+        if (empty($this->uuid)) {
+            do {
+                $this->uuid = Uuid::uuid();
+            } while (ProductMod::find()->where(['uuid' => $this->uuid])->exists());
+        }
+    }
+
+    public function uuidAndSlugGenerate()
+    {
+        $this->slugGenerate();
+        $this->uuidGenerate();
     }
 }
